@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Authcontext } from '../../shared Component/Authprovider/Authprovider';
+import Swal from 'sweetalert2';
 
 const RegisterPage = () => {
 const {googleLogin, userCreated} = useContext(Authcontext)
@@ -16,11 +17,17 @@ const userInformation = {
   password,
   confirmpaddword,
 
+
 }
 
 userCreated(email, password)
 .then(result=>{
   console.log(result.user);
+  Swal.fire({
+    title: "Successfully Register!",
+    icon: "success",
+    draggable: true
+  });
 })
 .then(error=>{
   console.log("error" ,error);

@@ -5,13 +5,13 @@ import { Outlet } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="">
       {/*---------------------------Navbar ------------------------- */}
       <header>
         <Navbar></Navbar>
       </header>
       {/*---------------------------Main Section------------------------- */}
-      <main className="container mx-auto w-11/12" >
+      <main className="container mx-auto w-11/12 h-screen" >
         <Outlet>
 
         </Outlet>

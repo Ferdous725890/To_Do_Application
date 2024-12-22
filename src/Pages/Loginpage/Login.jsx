@@ -1,21 +1,62 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Authcontext } from '../../shared Component/Authprovider/Authprovider';
+import Swal from 'sweetalert2';
 
 const LoginPage = () => {
+const {userLogin} = useContext(Authcontext)
+
+  const handleLogin = (event) =>{
+    console.log("btn click");
+      event.preventDefault()
+      const from = event.target
+      const email = from.email.value;
+      const password = from.password.value;
+      // user information 
+      const userInformation = {
+        email,
+        password,
+      
+      }
+      userLogin(email,password)
+     .then(result=>{
+       console.log(result.user);
+       Swal.fire({
+         title: "Successfully Login!",
+         icon: "success",
+         draggable: true
+       });
+     })
+     .then(error=>{
+      console.log("error" ,error);
+    })
+
+
+
+
+  }
+
+
+
+
+
+
   return (
     <div className="h-[600px] mt-3 shadow-lg mb-5 rounded-lg flex items-center justify-center bg-gradient-to-b from-purple-400 to-purple-500">
       <div className="w-96 bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg p-8 text-white">
         <h1 className="text-2xl font-bold text-center mb-6">Login</h1>
-        <form>
+        <form onSubmit={handleLogin}>
           {/* Username Field */}
           <div className="mb-4">
             <label htmlFor="username" className="block mb-2 text-sm font-medium">
-              Username
+              Email
             </label>
             <input
-              type="text"
-              id="username"
+              type="email"
+              id="email"
+              name='email'
               className="w-full px-3 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="Enter your username"
+              placeholder="Enter your email"
             />
           </div>
 
@@ -27,6 +68,7 @@ const LoginPage = () => {
             <input
               type="password"
               id="password"
+              name='password'
               className="w-full px-3 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your password"
             />
@@ -57,9 +99,10 @@ const LoginPage = () => {
         {/* Register Link */}
         <p className="text-center text-sm mt-4">
           Don't have an account?{' '}
-          <a href="#" className="text-blue-300 hover:underline">
+           
+          <Link to="/register" className="text-blue-300 hover:underline">
             Register
-          </a>
+          </Link>
         </p>
       </div>
     </div>

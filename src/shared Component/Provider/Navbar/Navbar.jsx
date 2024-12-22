@@ -5,7 +5,20 @@ import { AiOutlineLogin } from "react-icons/ai";
 import { Authcontext } from "../../Authprovider/Authprovider";
 
 const Navbar = () => {
-  const { user } = useContext(Authcontext);
+  const { user, userLogOut } = useContext(Authcontext);
+
+  const handelLogOut =() =>{
+    console.log("btn click");
+    userLogOut()
+    .then(result=>{
+      console.log("log out succesful",result);
+    })
+    
+  }
+
+
+
+
   const links = (
     <>
       <Link
@@ -13,21 +26,35 @@ const Navbar = () => {
         to="/"
       >
         {" "}
-        <FaHome className="text-lg mr-2" /> Login
-      </Link>
-      <Link
-        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
-        to="/"
-      >
-        {" "}
         <FaHome className="text-lg mr-2" /> Home
       </Link>
       <Link
         className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
-        to="/"
+        to="/addCard"
       >
         {" "}
-        <FaHome className="text-lg mr-2" /> Home
+        <FaHome className="text-lg mr-2" />  Add Car
+      </Link>
+      <Link
+        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        to="/myCar"
+      >
+        {" "}
+        <FaHome className="text-lg mr-2" /> My Cars
+      </Link>
+      <Link
+        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        to="/avilableCar"
+      >
+        {" "}
+        <FaHome className="text-lg mr-2" /> Available Cars
+      </Link>
+      <Link
+        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        to="/MyBooking"
+      >
+        {" "}
+        <FaHome className="text-lg mr-2" />  My Bookings
       </Link>
     </>
   );
@@ -82,7 +109,7 @@ const Navbar = () => {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <button onClick={handelLogOut}>Logout</button>
                 </li>
               </ul>
             </div>
