@@ -17,9 +17,9 @@ const HomePage = () => {
         </Outlet>
       </main>
       {/*---------------------------Footer------------------------- */}
-      <footer>
+      {/* <footer>
         <Footer></Footer>
-      </footer>
+      </footer> */}
 
     </div>
   );

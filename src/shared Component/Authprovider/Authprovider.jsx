@@ -15,10 +15,12 @@ const Authprovider = ({ children }) => {
   const [looding, setLooding] = useState(true);
   //--------------------------------------------------------Login User-------------------------
 const userLogin = (email, password) =>{
+  setLooding(true)
   return signInWithEmailAndPassword(auth, email, password)
 }
   //--------------------------------------------------------Register User-------------------------
   const userCreated = (email, password) => {
+    setLooding(true)
     console.log(email, password, "email and password ");
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -49,7 +51,9 @@ useEffect(()=>{
     googleLogin,
     userCreated,
     userLogin, 
-    userLogOut
+    userLogOut,
+    looding
+    
   };
 
   return (

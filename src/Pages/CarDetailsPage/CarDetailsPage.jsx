@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Authcontext } from "../../shared Component/Authprovider/Authprovider";
 
 const CarDetailsPage = () => {
-  const [allCar, setAllCar] = useState(null); 
+  const { user, } = useContext(Authcontext);
+  const [allCar, setAllCar] = useState(null);
   console.log(allCar);
   const { id } = useParams();
 
@@ -23,38 +25,48 @@ const CarDetailsPage = () => {
     }
   };
 
+
+
+
   if (!allCar) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
 
-const handelBooking = async(id) =>{
-  console.log(id);
-  await axios.post(`${import.meta.env.VITE_API_URL}/booking/${id}`)
-  .then(res =>console.log(res.data))
-
-  
-}
   const {
     _id,
     carmodel,
     price,
     availability,
     features,
-    images,
+
+    image,
     Description,
     reviews,
   } = allCar;
 
+  const bookingData = {
+    carmodel,
+    price,
+    availability,
+    features,
+    image,
+    Description,
+    reviews,
+    email: user?.email,
+  };
+
+  const handelBooking = async (id) => {
+    console.log(id);
+    await axios
+      .post(`${import.meta.env.VITE_API_URL}/booking`, bookingData)
+      .then((res) => console.log(res.data));
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 p-6">
       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
         {/* Image Section */}
         <div className="relative">
-          {/* <img
-            src={images}
-            alt={carmodel}
-            className="w-full h-64 object-cover"
-          /> */}
+          <img src={image} alt={"helo"} className="w-full h-64 object-cover" />
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
           <h2 className="absolute bottom-4 left-4 text-3xl text-white font-bold">
             {carmodel}
@@ -77,11 +89,11 @@ const handelBooking = async(id) =>{
           <div>
             <h4 className="text-xl font-semibold text-gray-800">Features:</h4>
             <p>{features}</p>
-            {/* <ul className="list-disc list-inside text-gray-600">
+            <ul className="list-disc list-inside text-gray-600">
               {features?.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
-            </ul> */}
+            </ul>
           </div>
 
           {/* Reviews */}
@@ -98,7 +110,7 @@ const handelBooking = async(id) =>{
 
           {/* Book Now Button */}
           <button
-            onClick={()=>handelBooking(_id)}
+            onClick={() => handelBooking(_id)}
             className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white rounded-lg font-semibold transition transform hover:scale-105"
           >
             Book Now
@@ -106,11 +118,7 @@ const handelBooking = async(id) =>{
         </div>
       </div>
     </div>
-    
   );
 };
 
 export default CarDetailsPage;
-
-
-

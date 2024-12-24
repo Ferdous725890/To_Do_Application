@@ -7,75 +7,92 @@ import { Authcontext } from "../../Authprovider/Authprovider";
 const Navbar = () => {
   const { user, userLogOut } = useContext(Authcontext);
 
-  const handelLogOut =() =>{
+  const handelLogOut = () => {
     console.log("btn click");
-    userLogOut()
-    .then(result=>{
-      console.log("log out succesful",result);
-    })
-    
-  }
+    userLogOut().then((result) => {
+      console.log("log out succesful", result);
+    });
+  };
 
-
-
-
-  const links = (
+  const linksnotUser = (
     <>
       <Link
-        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        className="border border-[#00C2FF] text-[#00C2FF] font-bold px-5 py-[3px] rounded-md  flex items-center "
         to="/"
       >
         {" "}
         <FaHome className="text-lg mr-2" /> Home
       </Link>
       <Link
-        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        className="border border-[#00C2FF] text-[#00C2FF] font-bold px-5 py-[3px] rounded-md  flex items-center "
+        to="/avilableCar"
+      >
+        {" "}
+        <FaHome className="text-lg mr-2" /> Available Cars
+      </Link>
+    </>
+  );
+
+  const links = (
+    <>
+      <Link
+        className="border border-[#00C2FF] text-[#00C2FF] font-bold px-5 py-[3px] rounded-md  flex items-center "
+        to="/"
+      >
+        {" "}
+        <FaHome className="text-lg mr-2" /> Home
+      </Link>
+      <Link
+        className="border border-[#00C2FF] text-[#00C2FF] font-bold px-5 py-[3px] rounded-md  flex items-center "
         to="/addCard"
       >
         {" "}
-        <FaHome className="text-lg mr-2" />  Add Car
+        <FaHome className="text-lg mr-2" /> Add Car
       </Link>
       <Link
-        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        className="border border-[#00C2FF] text-[#00C2FF] font-bold px-5 py-[3px] rounded-md  flex items-center "
         to="/myCar"
       >
         {" "}
         <FaHome className="text-lg mr-2" /> My Cars
       </Link>
       <Link
-        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        className="border border-[#00C2FF] text-[#00C2FF] font-bold px-5 py-[3px] rounded-md  flex items-center "
         to="/avilableCar"
       >
         {" "}
         <FaHome className="text-lg mr-2" /> Available Cars
       </Link>
       <Link
-        className="border border-secondary px-5 py-[3px] rounded-md  flex items-center "
+        className="border border-[#00C2FF] text-[#00C2FF] font-bold px-5 py-[3px] rounded-md  flex items-center "
         to="/MyBooking"
       >
         {" "}
-        <FaHome className="text-lg mr-2" />  My Bookings
+        <FaHome className="text-lg mr-2" /> My Bookings
       </Link>
     </>
   );
   return (
     <div className="">
-      <div className="container w-11/12 mx-auto">
+      <div className="container w-11/12 mx-auto border-b">
         <div className="navbar bg-base-100 flex justify-between items-center">
           {/* Start Section */}
           <div className="flex justify-start">
-            <a className="font-playwrite text-2xl">Ferdous</a>
-            {user?.email}
+            <img
+              className="w-[120px]"
+              src="https://i.ibb.co.com/XVnJ0dv/1e3f54f3-a1b0-425b-9f0e-c8494b5164a2.png"
+              alt=""
+            />
           </div>
 
           {/* Center Section */}
-          <div className="space-x-4">{links}</div>
+          <div className="space-x-4">{user?.email ? links : linksnotUser}</div>
 
           {/* End Section */}
           <div className="flex">
             <div className="dropdown dropdown-end">
               <Link
-                className="border  font-bold border-secondary px-3 mr-5 py-[3px] rounded-md  flex items-center "
+                className="border  font-bold border-[#00C2FF] text-[#00C2FF] font-bold px-3 mr-5 py-[3px] rounded-md  flex items-center "
                 to="/login"
               >
                 {" "}

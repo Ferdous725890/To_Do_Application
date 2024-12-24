@@ -44,10 +44,11 @@ const EditCarData = ({ edit }) => {
 
   return (
     <div>
-      <form onSubmit={handleUpdate} className="space-y-7">
-        {/* Card Model */}
-        <div className="mb-4">
-          <label htmlFor="CarModel" className="block mb-2 text-sm font-medium">
+      <form onSubmit={handleUpdate} className="text-white">
+      <div className="grid grid-cols-2 gap-5">
+  {/* Card Model */}
+  <div className="mb-4 ">
+          <label htmlFor="CarModel" className="block  mb-2 text-sm font-medium">
             Car Model
           </label>
           <input
@@ -55,7 +56,7 @@ const EditCarData = ({ edit }) => {
             id="CarModel"
             name="carmodel"
             defaultValue={edits.carmodel}
-            className="w-full border px-3 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full border text-[#7E22CE] px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Enter your car model"
           />
         </div>
@@ -70,10 +71,48 @@ const EditCarData = ({ edit }) => {
             id="DailyRentalPrice"
             name="price"
             defaultValue={edits.price}
-            className="w-full border px-3 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full border px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Enter daily rental price"
           />
         </div>
+      </div>
+
+
+ {/* Vehicle Registration Number */}
+ <div className="mb-4">
+          <label
+            htmlFor="RegistrationNumber"
+            className="block mb-2 text-sm font-medium"
+          >
+            Vehicle Registration Number
+          </label>
+          <input
+            type="text"
+            id="RegistrationNumber"
+            name="Registration_Number"
+            defaultValue={edits.Registration_Number}
+            className="w-full border px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            placeholder="Enter vehicle registration number"
+          />
+        </div>
+
+  {/* Description */}
+  <div className="mb-4">
+          <label
+            htmlFor="Description"
+            className="block mb-2 text-sm font-medium"
+          >
+            Description
+          </label>
+          <textarea
+            id="Description"
+            name="Description"
+            defaultValue={edits.Description}
+            className="w-full min-h-32 border px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            placeholder="Enter description"
+          />
+        </div>
+
 
         {/* Availability */}
         <div className="mb-4">
@@ -86,47 +125,15 @@ const EditCarData = ({ edit }) => {
           <select
             name="availability"
             defaultValue={edits.availability}
-            className="select select-bordered w-full"
+            className="select select-bordered w-full text-[#7E22CE]"
           >
             <option value="Available">Available</option>
             <option value="Unavailable">Unavailable</option>
           </select>
         </div>
 
-        {/* Vehicle Registration Number */}
-        <div className="mb-4">
-          <label
-            htmlFor="RegistrationNumber"
-            className="block mb-2 text-sm font-medium"
-          >
-            Vehicle Registration Number
-          </label>
-          <input
-            type="text"
-            id="RegistrationNumber"
-            name="Registration_Number"
-            defaultValue={edits.Registration_Number}
-            className="w-full border px-3 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-            placeholder="Enter vehicle registration number"
-          />
-        </div>
-
-        {/* Description */}
-        <div className="mb-4">
-          <label
-            htmlFor="Description"
-            className="block mb-2 text-sm font-medium"
-          >
-            Description
-          </label>
-          <textarea
-            id="Description"
-            name="Description"
-            defaultValue={edits.Description}
-            className="w-full border px-3 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-            placeholder="Enter description"
-          />
-        </div>
+       
+      
 
         {/* Location */}
         <div className="mb-4">
@@ -138,7 +145,7 @@ const EditCarData = ({ edit }) => {
             id="location"
             name="location"
             defaultValue={edits.location}
-            className="w-full border px-3 py-2 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full border px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Enter location"
           />
         </div>

@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../../shared Component/Authprovider/Authprovider";
 import Swal from "sweetalert2";
 import EditCarData from "../../Components/CardTable.jsx/EditCarData";
-
+import { BsPencilFill } from "react-icons/bs";
+import { MdDeleteForever } from "react-icons/md";
 const MyCar = () => {
   const { user } = useContext(Authcontext);
 
@@ -24,10 +25,10 @@ const MyCar = () => {
   };
 
   if (!cars) {
-    return <div>Loading...</div>; 
+    return <div><span className="loading loading-bars loading-lg"></span></div>; 
   }
   if (!edit) {
-    return <div>Loading...</div>; 
+    return <div><span className="loading loading-bars loading-lg"></span></div>; 
   }
 
 
@@ -101,7 +102,7 @@ const MyCar = () => {
           <table className="table table-xs">
             <thead>
               <tr>
-                <th></th>
+                <th>Count</th>
                 <th>Car Image</th>
                 <th>Car Model</th>
                 <th>Daily Rental Price</th>
@@ -109,54 +110,74 @@ const MyCar = () => {
                 <th>Date Added</th>
                 <th>Location</th>
                 <th>User Image</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {cars.map((car, index) => (
                 <tr key={car._id}>
                   <th>{index + 1}</th>
+                  <td className=""> <img  className="w-32 text-center rounded-lg" src={car.image} alt="" /> </td>
                   <td> {car.carmodel} </td>
                   <td>{car.price}</td>
                   <td>{car.availability}</td>
-                  <td>Date Added</td>
-                  <td>12/5/2020</td>
+                  <td>{car.addedDate}</td>
                   <td>{car.location}</td>
-                  <div>
+                  <td>12/5/2020</td>
+                  <td >
                     <button
                       onClick={() => handelDeleted(car._id)}
                       className="text-red-500 font-bold mr-5"
                     >
-                      Deleted
+                      <MdDeleteForever className="text-xl"  />
+
+                      {/* Deleted */}
                     </button>
                     <button
                       onClick={() => hendeledit(car._id)}
                       className="text-green-500 font-bold"
                     >
-                      Edit
+                     <BsPencilFill className="text-lg" /> 
+                     {/* Edit */}
                     </button>
-                  </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+
+
+
       </div>
 
-      {/* Modal - conditionally rendered based on `open` state */}
-      {open && (
-        <dialog className="modal" open>
-          <div className="modal-box w-[800px]">
-            <EditCarData edit={edit} />
-            <h3 className="font-bold text-lg">Edit Car</h3>
-            <p className="py-4">Press ESC key or click the button below to close</p>
-            <div className="modal-action">
-              <button onClick={() => setOpen(false)} className="btn">
-                Close
-              </button>
-            </div>
-          </div>
-        </dialog>
-      )}
+<div className="">
+        {/* Modal - conditionally rendered based on `open` state */}
+        {open && (
+  <dialog className="modal" open>
+    <div className="modal-box bg-[#00C2FF]"> {/* Wider modal */}
+    <h2 className="text-center text-2xl mb-5 font-medium text-[#7E22CE]">Update Your Data</h2>
+      <EditCarData edit={edit} />
+     
+      <div className="modal-action">
+        <button onClick={() => setOpen(false)} className="btn w-full">
+          Close
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+
+
+
+
+
+
+
+
+
+)}
+</div>
     </div>
   );
 };

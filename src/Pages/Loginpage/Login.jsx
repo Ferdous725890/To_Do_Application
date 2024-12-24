@@ -4,7 +4,7 @@ import { Authcontext } from '../../shared Component/Authprovider/Authprovider';
 import Swal from 'sweetalert2';
 
 const LoginPage = () => {
-const {userLogin} = useContext(Authcontext)
+const {userLogin, googleLogin} = useContext(Authcontext)
 
   const handleLogin = (event) =>{
     console.log("btn click");
@@ -30,10 +30,13 @@ const {userLogin} = useContext(Authcontext)
      .then(error=>{
       console.log("error" ,error);
     })
+    
 
 
 
-
+  }
+  const handelGoogleLogin = () =>{
+    googleLogin()
   }
 
 
@@ -104,9 +107,13 @@ const {userLogin} = useContext(Authcontext)
             Register
           </Link>
         </p>
+      <button onClick={handelGoogleLogin}>goole</button>
       </div>
     </div>
   );
 };
 
 export default LoginPage;
+
+
+

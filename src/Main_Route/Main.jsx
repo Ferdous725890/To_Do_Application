@@ -8,12 +8,19 @@ import AvilableCar from "../Pages/AvilableCard/AvilableCard";
 import MyBooking from "../Pages/MyBooking/MyBooking";
 import PrivateRouter from "../PrivateRoute/Private";
 import CarDetailsPage from "../Pages/CarDetailsPage/CarDetailsPage";
+import Error from "../Pages/ErrorPage/ErrorHandel";
+import Banner from "../Pages/Banner/Banner";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage></HomePage>,
+    errorElement:<Error></Error>,
     children: [
+      {
+        path: "/",
+        element: <Banner></Banner>,
+      },
       {
         path: "/addCard",
         element: <AddCar></AddCar>,
@@ -22,17 +29,23 @@ const router = createBrowserRouter([
         path: "/myCar",
         element:
         <PrivateRouter>
-
           <MyCar></MyCar>,
         </PrivateRouter>
       },
       {
         path: "/avilableCar",
-        element: <AvilableCar></AvilableCar>,
+        element: 
+        <PrivateRouter>
+
+          <AvilableCar></AvilableCar>,
+        </PrivateRouter>
       },
       {
         path: "/MyBooking",
-        element: <MyBooking></MyBooking>,
+        element:
+        <PrivateRouter>
+          <MyBooking></MyBooking>,
+        </PrivateRouter>
       },
       {
         path: "/detailsPage/:id",
@@ -46,6 +59,7 @@ const router = createBrowserRouter([
         path: "/register",
         element: <RegisterPage></RegisterPage>,
       },
+   
     ],
   },
 ]);
