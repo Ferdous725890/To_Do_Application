@@ -31,9 +31,8 @@ const AddCar = () => {
     // console.log("Full Form Data:", allData);
     // Get current date and time in ISO format
     const currentDate = new Date();
-    const formattedDate = format(currentDate, 'yyyy-MM-dd'); 
-
-
+    const formattedDate = format(currentDate, "yyyy-MM-dd");
+    const formattedTime = format(currentDate, "HH:mm:ss");
 
     const formData = new FormData(event.target);
     const allData = Object.fromEntries(formData.entries());
@@ -42,9 +41,13 @@ const AddCar = () => {
       ...allData,
       features: selectedFeatures,
       email: user?.email,
-      bookingCount: "0",
-      addedDate: formattedDate, 
+      bookingCount: 0,
+      addedDate: {
+        curentDate: formattedDate,
+        curenttime: formattedTime,
+      },
     };
+    console.log(cardAddedInformation);
 
     // console.log(features,'-------------------my feature ');
     //     const cardAddedInformation = {
@@ -76,7 +79,13 @@ const AddCar = () => {
     }
   };
   return (
-    <div className="bg-[#00C2FF] w-[900px] mx-auto mt-5 rounded-lg shadow-xl text-white">
+    <div
+      className="
+    
+bg-gradient-to-t from-[#26cae0] to-[#d0a7f4] 
+    
+    w-[900px] mx-auto mt-10 rounded-lg shadow-xl text-white mb-20"
+    >
       <form onSubmit={handleCardAdded} className=" p-10">
         <div className="grid grid-cols-2 gap-5">
           {/* Card Model */}
@@ -91,7 +100,7 @@ const AddCar = () => {
               type="text"
               id="CarModel"
               name="carmodel"
-              className="w-full  text-[#9333EA] border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-gray-700 text-[#9333EA] border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Car Model"
               required
             />
@@ -109,7 +118,7 @@ const AddCar = () => {
               type="number"
               id="Daily_Renta_lPrice"
               name="price"
-              className="w-full border px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-gray-700 border px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter Daily Rental Price"
               required
             />
@@ -128,7 +137,7 @@ const AddCar = () => {
               type="number"
               id="registrationNumber"
               name="Registration_Number"
-              className="w-full border px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border bg-gray-700 px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder=" Vehicle Registration Number"
               required
             />
@@ -146,7 +155,7 @@ const AddCar = () => {
               type="text"
               id="location"
               name="location"
-              className="w-full border px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border bg-gray-700 px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Location"
             />
           </div>
@@ -161,7 +170,7 @@ const AddCar = () => {
             type="text"
             id="Description"
             name="Description"
-            className="w-full text-[#9333EA] min-h-48 border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full bg-gray-700 text-[#9333EA] min-h-48 border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Description"
           />
         </div>
@@ -176,7 +185,7 @@ const AddCar = () => {
           </label>
           <select
             name="availability"
-            className="select select-bordered w-full text-[#9333EA]"
+            className="select select-bordered bg-gray-900 w-full text-[#9333EA]"
             defaultValue="Availability"
           >
             <option disabled value="Availability">
@@ -219,13 +228,11 @@ const AddCar = () => {
             type="url"
             id="image"
             name="image"
-            className="w-full border px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full border bg-gray-700 px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Car Image URL"
             required
           />
         </div>
-
-      
 
         {/* Login Button */}
         <button

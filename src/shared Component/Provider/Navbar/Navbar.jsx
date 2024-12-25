@@ -6,6 +6,7 @@ import { Authcontext } from "../../Authprovider/Authprovider";
 
 const Navbar = () => {
   const { user, userLogOut } = useContext(Authcontext);
+  
 
   const handelLogOut = () => {
     console.log("btn click");
@@ -73,9 +74,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="">
-      <div className="container w-11/12 mx-auto border-b">
-        <div className="navbar bg-base-100 flex justify-between items-center">
+    <div className="bg-[#1D252D]">
+      <div className="container w-11/12 mx-auto border-b bg-[#1D252D]">
+        <div className="navbar bg-base-100 flex justify-between items-center ">
           {/* Start Section */}
           <div className="flex justify-start">
             <img
@@ -83,6 +84,7 @@ const Navbar = () => {
               src="https://i.ibb.co.com/XVnJ0dv/1e3f54f3-a1b0-425b-9f0e-c8494b5164a2.png"
               alt=""
             />
+         
           </div>
 
           {/* Center Section */}
@@ -92,7 +94,7 @@ const Navbar = () => {
           <div className="flex">
             <div className="dropdown dropdown-end">
               <Link
-                className="border  font-bold border-[#00C2FF] text-[#00C2FF] font-bold px-3 mr-5 py-[3px] rounded-md  flex items-center "
+                className="border   border-[#00C2FF] text-[#00C2FF] font-bold px-3 mr-5 py-[3px] rounded-md  flex items-center "
                 to="/login"
               >
                 {" "}
@@ -108,7 +110,7 @@ const Navbar = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    src={user?.displayName}
                   />
                 </div>
               </div>

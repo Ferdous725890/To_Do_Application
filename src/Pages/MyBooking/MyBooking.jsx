@@ -39,32 +39,38 @@ console.log(err);
       
       {bookingCarData.length}
       <div>
-        <div className="overflow-x-auto">
-          <table className="table table-xs">
+        <div className="overflow-x-auto mt-10 mb-10">
+          <table className="table table-xs bg-slate-600">
             <thead>
-              <tr>
-                <th></th>
-                <th>Car Image</th>
-                <th>Car Model</th>
-                <th>Booking Date</th>
-                <th>Total Price</th>
-                <th>Booking Status</th>
-                <th>Actions</th>
+              <tr className="shadow-lg">
+                <th className="border text-center text-base font-bold text-white" >Car Image</th>
+                <th className="border text-center text-base font-bold text-white" >Car Model</th>
+                <th className="border text-center text-base font-bold text-white" >Booking Date</th>
+                <th className="border text-center text-base font-bold text-white" >Total Price</th>
+                <th className="border text-center text-base font-bold text-white" >Booking Status</th>
+                <th className="border text-center text-base font-bold text-white" >Actions</th>
               </tr>
             </thead>
             <tbody>
  
             {bookingCarData?.map((booking, index) => <tr key={index} >
-                <th>  {index +1} </th>
-                <td>{booking.carmodel}</td>
-                <td>{booking.price}</td>
-                <td> {booking.availability} </td>
-                <td> {booking.images} </td>
-                <td> {booking.Description} </td>
-                <div>
+             
+                <td className="border text-center text-white text-sm  w-[150px] " > <img className="w-[150px] " src={booking.image} alt="" /></td>
+                <td className="border text-center text-white text-sm " >{booking.carmodel}</td>
+                <td className="border text-center text-white text-sm " >{booking?.addedDate?.curentDate}</td>
+                <td className="border text-center text-white text-sm " > {booking.price} </td>
+                <td className="border text-center text-white text-sm " > {booking.availability} </td>
+                <td className="border text-center text-white text-sm " > 
+                  
+                  
+                <div >
                     <button onClick={()=>handelCancel(booking._id)} > Cancel </button>
                     <button> Edit </button>
                 </div>
+                  
+                   </td>
+                
+               
                 
               </tr> )}
              

@@ -11,15 +11,15 @@ const HomePage = () => {
         <Navbar></Navbar>
       </header>
       {/*---------------------------Main Section------------------------- */}
-      <main className="container mx-auto w-11/12 h-screen" >
+      <main className="container mx-auto w-11/12" >
         <Outlet>
 
         </Outlet>
       </main>
       {/*---------------------------Footer------------------------- */}
-      {/* <footer>
+      <footer>
         <Footer></Footer>
-      </footer> */}
+      </footer>
 
     </div>
   );
