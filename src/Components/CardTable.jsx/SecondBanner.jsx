@@ -25,7 +25,7 @@ const SecondBanner = () => {
         Latest Data <span>{latestCar?.length}</span>{" "}
 
 
-        <div className="grid grid-cols-3  gap-y-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-y-10">
             {
                 latestCar.map(car => <LatestCar key={car._id} car={car}></LatestCar>)
             }

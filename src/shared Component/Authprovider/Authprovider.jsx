@@ -8,6 +8,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import axios from "axios";
 export const Authcontext = createContext(null);
 
 const Authprovider = ({ children }) => {
@@ -33,19 +34,55 @@ const userLogin = (email, password) =>{
   };
 
   //-------------------------------------------------------- User Log Out-------------------------
+  //-------------------------------------------------------- Update profile-------------------------
+  
+  //-------------------------------------------------------- Update profile-------------------------
 
   const userLogOut = () =>{
     return signOut(auth)
   }
 
-useEffect(()=>{
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+  //     setUser(currentUser);
+  //     console.log("state captured", currentUser);
+  //     if (currentUser?.email) {
+  //       const user = { email: currentUser.email };
+  //       axios
+  //         .post("http://localhost:5000/jwt", user, {
+  //           withCredentials: true,
+  //         })
+  //         .then((res) => {
+  //           console.log("login", res.data);
+  //           setLooding(false);
+  //         });
+  //     } else {
+  //       axios
+  //         .post(
+  //           "http://localhost:5000/logout",
+  //           {},
+  //           {
+  //             withCredentials: true,
+  //           }
+  //         )
+  //         .then((res) => {
+  //           console.log("logout", res.data);
+  //           setLooding(false);
+  //         });
+  //     }
+  //   });
+
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, []);
+  useEffect(()=>{
     const  unsubscribe = onAuthStateChanged(auth,( currentUser)=>{
         setUser(currentUser)
         setLooding(false)
     } )
     return ()=>unsubscribe()
 })
-
   const userInfo = {
     user,
     googleLogin,

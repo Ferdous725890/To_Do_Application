@@ -25,7 +25,7 @@ const UserRevies = () => {
   ];
 
   return (
-    <div className="mt-10 h-[300px]">
+    <div className="mt-10 h-[300px] hidden md:block">
       <div>
         <h2 className="text-4xl text-center text-[#00C2FF]">Testimonial</h2>
         <p className="text-4xl mt-3 mb-5 xl text-center">Our Customers Review</p>

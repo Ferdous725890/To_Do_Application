@@ -15,6 +15,7 @@ const LatestCar = ({ car }) => {
     location,
     price,
     _id,
+  
   } = car;
 
   return (
@@ -25,7 +26,11 @@ const LatestCar = ({ car }) => {
           <FaRegHeart className="text-[1.1rem] text-gray-600" />
           <div className="flex items-center gap-[5px]">
             <MdOutlineTimer className="text-orange-700 text-[1.1rem]" />
-            <p className="text-[1rem] text-orange-700">5 min</p>
+            <p className="text-[1rem] text-orange-700"> {addedDate.curentDate} <br />
+            {
+              addedDate.curenttime
+            }
+             </p>
           </div>
         </div>
 

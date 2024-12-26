@@ -3,10 +3,10 @@ import React from "react";
 const DownloodSection = () => {
   return (
     <div className="bg-gradient-to-r from-white/10  to-[#2b2f34fa]  mt-[150px] rounded-lg mb-20">
-      <div className="ml-32">
+      <div className="md:ml-32">
         <div className="pt-10 pl-10">
           <h2 className="text-white text-3xl">Download the Rentify App</h2>
-          <p className="w-4/12 text-white text-sm mt-3">
+          <p className="md:w-4/12 text-white text-sm mt-3">
             Make your car rental experience even more convenient by downloading
             the Rentify app. Available on both iOS and Android platforms, our
             app brings a range of features to your fingertips.

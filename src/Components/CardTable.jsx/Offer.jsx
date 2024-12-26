@@ -5,9 +5,9 @@ const Offer = () => {
     <div className="mt-32">
 
 <h2 className="text-4xl font-medium text-center">Special Offers Just for You!</h2>
-      <div className="flex justify-center space-x-8  mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center mt-12">
         {/* Offer Card 1 */}
-        <div className="group [perspective:1000px] w-full sm:w-[80%] lg:w-[30%] h-[350px]">
+        <div className="group [perspective:1000px] mb-10 w-full sm:w-[80%] lg:w-[90%] h-[350px]">
           <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
             {/* Front Side */}
             <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500">
@@ -41,7 +41,7 @@ const Offer = () => {
         </div>
 
         {/* Offer Card 2 */}
-        <div className="group [perspective:1000px] w-full sm:w-[80%] lg:w-[30%] h-[350px] ">
+        <div className="group [perspective:1000px] mb-10 w-full sm:w-[80%] lg:w-[90%] h-[350px] ">
           <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]  from-green-500 via-teal-500 to-blue-500 bg-white  ">
             {/* Front Side */}
             <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden]">
@@ -75,7 +75,7 @@ const Offer = () => {
         </div>
 
         {/* Offer Card 3 */}
-        <div className="group [perspective:1000px] w-full sm:w-[80%] lg:w-[30%] h-[350px]">
+        <div className="group [perspective:1000px] w-full sm:w-[80%] lg:w-[90%] h-[350px]">
           <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
             {/* Front Side */}
             <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500">

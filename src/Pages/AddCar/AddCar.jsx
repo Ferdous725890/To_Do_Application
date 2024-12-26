@@ -84,10 +84,10 @@ const AddCar = () => {
     
 bg-gradient-to-t from-[#26cae0] to-[#d0a7f4] 
     
-    w-[900px] mx-auto mt-10 rounded-lg shadow-xl text-white mb-20"
+    max-w-[900px] mx-auto mt-10 rounded-lg shadow-xl text-white mb-20"
     >
       <form onSubmit={handleCardAdded} className=" p-10">
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           {/* Card Model */}
           <div className="mb-4">
             <label
@@ -124,7 +124,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           {/* Vehicle Registration Number */}
           <div className="mb-4">
             <label
@@ -196,7 +196,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
           </select>
         </div>
         {/* ----------------------------- Features ---------------------------- */}
-        <div className="flex justify-between border mt-5 mb-5 px-5 py-2 rounded-lg">
+        <div className=" md:flex justify-between border mt-5 mb-5 px-5 py-2 rounded-lg">
           <label
             htmlFor="features"
             className="block mb-2 text-base font-medium text-white"

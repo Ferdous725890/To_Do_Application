@@ -14,19 +14,19 @@ const Banner = () => {
     <div className="relative ">
       <div>
         <div className="hero min-h-screen">
-          <video
-            src="/src/assets/video.mp4"
-            className="w-full rounded-2xl lob"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              height: "calc(100vh - 5rem)", // 4rem = Navbar height
-              display: "block",
-              objectFit: "cover",
-            }}
-          />
+        <video
+  src="/assets/video.mp4"
+  className="w-full rounded-2xl lob"
+  autoPlay
+  loop
+  muted
+  playsInline
+  style={{
+    height: "calc(100vh - 5rem)", // 4rem = Navbar height
+    display: "block",
+    objectFit: "cover",
+  }}
+/>
 
           <div className="hero-overlay bg-opacity-0"></div>
           <div className="hero-content text-neutral-content text-center">
@@ -35,10 +35,9 @@ const Banner = () => {
                 <ReactTyped
                   strings={[
                     "Welcome to Rentify",
-                    "Smart Choices", 
-                    "Smart Rides"
+                    "Smart Choices",
+                    "Smart Rides",
                   ]}
-
                   typeSpeed={70}
                   backSpeed={50}
                   loop
@@ -49,8 +48,10 @@ const Banner = () => {
                 assumenda excepturi exercitationem quasi. In deleniti eaque aut
                 repudiandae et a id nisi.
               </p>
-              
-                <button className="border animate-bounce border-[#00C2FF] px-3 py-1 text-[#00C2FF] rounded-md hover:bg-[#00C2FF] hover:text-white">Get Started</button>
+
+              <button className="border animate-bounce border-[#00C2FF] px-3 py-1 text-[#00C2FF] rounded-md hover:bg-[#00C2FF] hover:text-white">
+                Get Started
+              </button>
             </div>
           </div>
         </div>

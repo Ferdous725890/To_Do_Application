@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Authcontext } from "../../shared Component/Authprovider/Authprovider";
+import { format } from "date-fns";
 
 const CarDetailsPage = () => {
   const { user } = useContext(Authcontext);
@@ -43,8 +44,13 @@ const CarDetailsPage = () => {
     reviews,
   } = allCar;
 
+  const currentDate = new Date();
+      const formattedDate = format(currentDate, "yyyy-MM-dd");
+      // const formattedTime = format(currentDate, "HH:mm:ss");
+
   const bookingData = {
     carmodel,
+   
     price,
     availability,
     features,
@@ -52,6 +58,7 @@ const CarDetailsPage = () => {
     Description,
     reviews,
     email: user?.email,
+    formattedDate
   };
 
   const handelBooking = async (id) => {
@@ -98,6 +105,9 @@ const CarDetailsPage = () => {
           </p>
           <p className="text-gray-600">
             <strong>Description:</strong> {Description}
+          </p>
+          <p className="text-gray-600">
+            <strong>Date:</strong> {formattedDate}
           </p>
 
           {/* Features */}
