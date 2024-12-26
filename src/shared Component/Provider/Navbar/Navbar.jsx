@@ -66,6 +66,12 @@ const Navbar = () => {
       >
         <FaHome className="text-lg mr-2" /> My Bookings
       </Link>
+      <Link
+        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+        to="/contactus"
+      >
+        <FaHome className="text-lg mr-2" /> ContactUs
+      </Link>
     </>
   );
 

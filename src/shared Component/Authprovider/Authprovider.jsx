@@ -8,7 +8,6 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import axios from "axios";
 export const Authcontext = createContext(null);
 
 const Authprovider = ({ children }) => {
@@ -78,7 +77,7 @@ const userLogin = (email, password) =>{
   // }, []);
   useEffect(()=>{
     const  unsubscribe = onAuthStateChanged(auth,( currentUser)=>{
-        setUser(currentUser)
+      setUser(currentUser)
         setLooding(false)
     } )
     return ()=>unsubscribe()

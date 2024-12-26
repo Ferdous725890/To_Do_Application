@@ -11,6 +11,7 @@ import CarDetailsPage from "../Pages/CarDetailsPage/CarDetailsPage";
 import Error from "../Pages/ErrorPage/ErrorHandel";
 import Banner from "../Pages/Banner/Banner";
 import Test from "../Components/TestFile/Test";
+import ContactUs from "../Components/CardTable.jsx/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/test",
         element: <Test></Test>
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs></ContactUs>
       },
       
    

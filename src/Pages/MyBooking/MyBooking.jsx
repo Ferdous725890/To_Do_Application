@@ -27,7 +27,10 @@ const MyBooking = () => {
   };
 
   const handelCancel = async (id) => {
-    console.log(id, "cancel");
+
+
+
+
     try {
       await axios.delete(`${import.meta.env.VITE_API_URL}/booking_cancel/${id}`);
       fetchAlldata(); // Refresh the booking data after cancel
@@ -35,6 +38,12 @@ const MyBooking = () => {
       console.log(err);
     }
   };
+
+
+  const handelEdit = (id) =>{
+  axios.post(`${import.meta.env.VITE_API_URL}/booking_cancel/${id}`)
+
+  }
 
   if (loading) {
     // Display loading spinner while data is being fetched
@@ -48,8 +57,8 @@ const MyBooking = () => {
   return (
     <div>
       <div>
-        <div className="overflow-x-auto mt-10 mb-10">
-          <table className="table table-xs bg-slate-600">
+        <div className="overflow-x-auto mt-10 mb-[200px]">
+          <table className="table table-xs bg-[#111827]">
             <thead>
               <tr className="shadow-lg">
                 <th className="border text-center text-base font-bold text-white">Car Image</th>
@@ -72,8 +81,8 @@ const MyBooking = () => {
                   <td className="border text-center text-white text-sm">{booking.availability}</td>
                   <td className="border text-center text-white text-sm">
                     <div>
-                      <button onClick={() => handelCancel(booking._id)}>Cancel</button>
-                      <button>Edit</button>
+                      <button className="mr-2 text-red-300" onClick={() => handelCancel(booking._id)}>Cancel</button>
+                      <button className="text-green-500" onClick={() => handelEdit(booking._id)} >Edit</button>
                     </div>
                   </td>
                 </tr>

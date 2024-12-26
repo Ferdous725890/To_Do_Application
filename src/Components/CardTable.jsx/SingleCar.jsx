@@ -9,9 +9,10 @@ const SingleCar = ({ singleCar }) => {
   return (
     <div className="card w-full bg-white shadow-md rounded-lg p-4 mb-5">
       {/* Car Details */}
-      <img src={image} alt="" />
+      <img className="h-[200px] w-full " src={image} alt="" />
+
+
       <h2 className="text-xl font-bold text-gray-800">{carmodel}</h2>
-     
       <p className="text-gray-600 mt-1">
         <strong>Price:</strong> ${price}/day
       </p>
