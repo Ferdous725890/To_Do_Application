@@ -1,48 +1,31 @@
-# Chill Gamer 🎮
+# Car Rental Project
 
-A simple and user-friendly game review application.
+This is a car rental application designed to allow users to browse, book, and rent cars online. The platform offers users the ability to view available car models, check the details of each car, and make a booking request directly through the application. 
 
----
+## Features
+
+- **Car Listings**: Displays a list of available cars with details like model, price, features, and availability.
+- **Booking System**: Allows users to select a car, book it for a specific date range, and submit their booking information.
+- **Car Details**: Provides detailed information about each car including its specifications, images, and rental price.
+- **User Authentication**: Secure login and signup for users to manage their bookings and profiles.
+- **Search and Filter**: Users can filter cars based on their preferences such as price, model, and features.
+- **Responsive Design**: The platform is fully responsive and works on both desktop and mobile devices.
+
+## Tech Stack
+
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Node.js (Express), MongoDB
+- **Authentication**: JWT (JSON Web Tokens)
+- **Version Control**: Git, GitHub
+
+## Installation
+
+### Prerequisites
+
+- Node.js and npm installed
+- MongoDB database
+
+### Steps
 
 ## **Live Server** 🌐  
 [Visit Chill Gamer](https://loginfrom-525ec.web.app/)  
-
-
----
-
-## **1. Gaming Reviews**  
-- **Latest Reviews**: Explore the newest reviews from users.  
-- **Top Rated Games**: Check out the highest-rated games based on user ratings.  
-- **Upcoming Games**: Stay updated with reviews of upcoming titles.  
-- **Game Reviews by Genre**: Browse reviews filtered by genres like Action, RPG, Adventure, and more.  
-
----
-
-## **Features** 🌟  
-- Secure user authentication (Email/Password and Google login).  
-- Add, update, and delete game reviews easily.  
-- View highest-rated games and detailed game reviews.  
-- Game Watchlist feature to save favorite games.  
-- Dark/Light theme toggle for enhanced user experience.  
-
----
-
-## **Technologies Used** 🛠️  
-
-### Frontend:  
-- React.js  
-- Tailwind CSS  
-- React Router DOM  
-- React-Toastify  
-- React Carousel  
-
-### Backend:  
-- Node.js  
-- Express.js  
-- MongoDB Atlas  
-- JWT (JSON Web Token)  
-- dotenv  
-
----
-
-
