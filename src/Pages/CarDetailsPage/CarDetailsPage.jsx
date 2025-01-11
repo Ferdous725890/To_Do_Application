@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Authcontext } from "../../shared Component/Authprovider/Authprovider";
 import { format } from "date-fns";
+import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const CarDetailsPage = () => {
+  const [rating, setRating] = useState(0);
+  console.log(rating, "added rating");
+  const navigate = useNavigate();
   const { user } = useContext(Authcontext);
   const [allCar, setAllCar] = useState(null);
   const { id } = useParams();
@@ -45,20 +49,27 @@ const CarDetailsPage = () => {
   } = allCar;
 
   const currentDate = new Date();
-      const formattedDate = format(currentDate, "yyyy-MM-dd");
-      // const formattedTime = format(currentDate, "HH:mm:ss");
+  const formattedDate = format(currentDate, "yyyy-MM-dd");
 
   const bookingData = {
     carmodel,
-   
     price,
     availability,
     features,
     image,
     Description,
     reviews,
+    job_id: _id,
     email: user?.email,
-    formattedDate
+    formattedDate,
+    rating,
+
+    bidCount: 0,
+  };
+
+  const handleRatingClick = (index) => {
+    const newRating = index + 1;
+    setRating(newRating);
   };
 
   const handelBooking = async (id) => {
@@ -73,6 +84,7 @@ const CarDetailsPage = () => {
           title: "Booking Successful",
           text: "Your booking has been confirmed!",
         });
+        navigate("/MyBooking");
       }
     } catch (error) {
       Swal.fire({
@@ -85,57 +97,70 @@ const CarDetailsPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
-        {/* Image Section */}
-        <div className="relative">
-          <img src={image} alt={"Car"} className="w-full h-64 object-cover" />
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
-          <h2 className="absolute bottom-4 left-4 text-3xl text-white font-bold">
-            {carmodel}
-          </h2>
+      <div className="max-w-4xl grid grid-cols-2 w-[1000px] border p-5 rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
+        <div className="flex  items-center justify-center rounded-lg">
+          <img
+            src={image}
+            alt={"Car"}
+            className="w-[700px] h-[300px] items-center justify-center rounded-lg  object-cover"
+          />{" "}
         </div>
 
         {/* Details Section */}
-        <div className="p-6 space-y-4">
-          <h3 className="text-2xl font-bold text-gray-800">
-            Price Per Day: <span className="text-purple-600">${price}</span>
+        <div className="p-6 space-y-1 border">
+          <h3 className="text-xl font-bold text-white ">
+            <span className="">{carmodel}</span>
           </h3>
-          <p className="text-lg text-gray-600">
-            <strong>Availability:</strong> {availability}
-          </p>
-          <p className="text-gray-600">
-            <strong>Description:</strong> {Description}
-          </p>
-          <p className="text-gray-600">
-            <strong>Date:</strong> {formattedDate}
-          </p>
+          <p className="text-white text-sm">{Description}</p>
 
+          <p className="text-white font">{availability}</p>
+          <p className="text-white">{formattedDate}</p>
           {/* Features */}
-          <div>
-            <h4 className="text-xl font-semibold text-gray-800">Features:</h4>
-            <ul className="list-disc list-inside text-gray-600">
-              {features?.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
+          <div className="">
+            <h4 className="text-white font-bold">Features:</h4>
+            <ul className="list-disc list-inside ">
+              <div className="grid grid-cols-2 text-white">
+                {features?.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </div>
             </ul>
-          </div>
-
-          {/* Reviews */}
           <div>
-            <h4 className="text-xl font-semibold text-gray-800">Reviews:</h4>
+            <h4 className="text-xl font-semibold text-gray-800 mt-2"></h4>
             <div className="space-y-2">
               {reviews?.map((review, index) => (
-                <p key={index} className="text-gray-600 italic">
+                <p key={index} className="text-blue-400 italic">
                   "{review}"
                 </p>
               ))}
             </div>
           </div>
+          </div>
+
+          {/* Reviews */}
+
+          <div className="flex mt-2 ">
+            {[0, 1, 2, 3, 4].map((index) => (
+              <span
+                key={index}
+                onClick={() => handleRatingClick(index)}
+                className="cursor-pointer"
+              >
+                {index < Math.floor(rating) ? (
+                  <FaStar className="text-yellow-500" />
+                ) : index < Math.ceil(rating) ? (
+                  <FaStarHalfAlt className="text-yellow-500" />
+                ) : (
+                  <FaRegStar className="text-yellow-500" />
+                )}
+              </span>
+            ))}
+          </div>
 
           {/* Book Now Button */}
           <button
             onClick={() => handelBooking(_id)}
-            className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white rounded-lg font-semibold transition transform hover:scale-105"
+            className="w-full py-2 bg-[#05A3D6] text-white rounded-lg font-semibold transition transform hover:scale-105"
           >
             Book Now
           </button>
@@ -146,152 +171,3 @@ const CarDetailsPage = () => {
 };
 
 export default CarDetailsPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect, useContext } from "react";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
-// import { Authcontext } from "../../shared Component/Authprovider/Authprovider";
-
-// const CarDetailsPage = () => {
-//   const { user, } = useContext(Authcontext);
-//   const [allCar, setAllCar] = useState(null);
-//   console.log(allCar);
-//   const { id } = useParams();
-
-//   useEffect(() => {
-//     fetchAlldata();
-//   }, []);
-
-//   const fetchAlldata = async () => {
-//     try {
-//       const { data } = await axios.get(
-//         `${import.meta.env.VITE_API_URL}/detailsPage/${id}`
-//       );
-//       console.log(data, "Fetched Car Details");
-//       setAllCar(data); // Set the fetched data to state
-//     } catch (error) {
-//       console.error("Error fetching car details:", error);
-//     }
-//   };
-
-
-
-
-//   if (!allCar) {
-//     return <div>Loading...</div>;
-//   }
-
-//   const {
-//     _id,
-//     carmodel,
-//     price,
-//     availability,
-//     features,
-
-//     image,
-//     Description,
-//     reviews,
-//   } = allCar;
-
-//   const bookingData = {
-//     carmodel,
-//     price,
-//     availability,
-//     features,
-//     image,
-//     Description,
-//     reviews,
-//     email: user?.email,
-//   };
-
-//   const handelBooking = async (id) => {
-//     console.log(id);
-//     await axios
-//       .post(`${import.meta.env.VITE_API_URL}/booking`, bookingData)
-//       .then((res) => console.log(res.data));
-//   };
-//   return (
-//     <div className="min-h-screen flex items-center justify-center  p-6">
-//       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
-//         {/* Image Section */}
-//         <div className="relative">
-//           <img src={image} alt={"helo"} className="w-full h-64 object-cover" />
-//           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
-//           <h2 className="absolute bottom-4 left-4 text-3xl text-white font-bold">
-//             {carmodel}
-//           </h2>
-//         </div>
-
-//         {/* Details Section */}
-//         <div className="p-6 space-y-4">
-//           <h3 className="text-2xl font-bold text-gray-800">
-//             Price Per Day: <span className="text-purple-600">${price}</span>
-//           </h3>
-//           <p className="text-lg text-gray-600">
-//             <strong>Availability:</strong> {availability}
-//           </p>
-//           <p className="text-gray-600">
-//             <strong>Description:</strong> {Description}
-//           </p>
-
-//           {/* Features */}
-//           <div>
-//             <h4 className="text-xl font-semibold text-gray-800">Features:</h4>
-//             <p>{features}</p>
-//             <ul className="list-disc list-inside text-gray-600">
-//               {features?.map((feature, index) => (
-//                 <li key={index}>{feature}</li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           {/* Reviews */}
-//           <div>
-//             <h4 className="text-xl font-semibold text-gray-800">Reviews:</h4>
-//             <div className="space-y-2">
-//               {reviews?.map((review, index) => (
-//                 <p key={index} className="text-gray-600 italic">
-//                   "{review}"
-//                 </p>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* Book Now Button */}
-//           <button
-//             onClick={() => handelBooking(_id)}
-//             className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white rounded-lg font-semibold transition transform hover:scale-105"
-//           >
-//             Book Now
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CarDetailsPage;

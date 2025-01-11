@@ -3,20 +3,17 @@ import {CgFacebook} from "react-icons/cg";
 import {BsInstagram, BsLinkedin, BsTwitter} from "react-icons/bs";
 const Footer = () => {
     return (
-      <div className='bg-gradient-to-r from-[#063340] to-blue-500'>
-          <div className='mx-auto container w-11/12 '>
+      <div className='bg-[#1a0b2e] text-white'>
+          <div className='mx-auto container w-11/12  '>
           <footer 
-          style={{
           
-            boxShadow: "0 10px 10px rgb(0, 194, 255)",
-          }}
           
-          className="bg-white w-full p-6 lg:p-9 bg-gradient-to-r from-[#7db9c9ac] to-[#3A81F3]">
-            <div className="flex justify-between gap-[30px] flex-wrap w-full">
+          className=" w-full p-6 lg:p-9">
+            <div className="flex justify-between gap-[30px] flex-wrap w-full bg-[#1a0b2e] ">
 
                 <div className="">
                     <h3 className="text-[1.2rem] font-semibold text-text mb-2">Services</h3>
-                    <div className="flex text-black flex-col gap-[10px]">
+                    <div className="flex text-white flex-col gap-[10px]">
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">UI
                             Components</p>
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Website
@@ -31,7 +28,7 @@ const Footer = () => {
 
                 <div className="">
                     <h3 className="text-[1.2rem] font-semibold text-text mb-2">Company</h3>
-                    <div className="flex text-black flex-col gap-[10px]">
+                    <div className="flex  flex-col gap-[10px]">
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Service</p>
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Features</p>
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Our
@@ -46,7 +43,7 @@ const Footer = () => {
 
                 <div className="">
                     <h3 className="text-[1.2rem] font-semibold text-text mb-2">Our Social Media</h3>
-                    <div className="flex text-black flex-col gap-[10px]">
+                    <div className="flex       flex-col gap-[10px]">
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Dribbble</p>
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Behance</p>
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Medium</p>

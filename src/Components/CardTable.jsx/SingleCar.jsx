@@ -2,52 +2,79 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleCar = ({ singleCar }) => {
-  const { _id, carmodel, price, 
-    image, Registration_Number, Description, availability, location, addedDate } = singleCar;
-    console.log(addedDate, "amar date ");
+  const {
+    _id,
+    carmodel,
+    price,
+    image,
+    Registration_Number,
+    Description,
+    availability,
+    location,
+    addedDate,
+  } = singleCar;
 
   return (
-    <div className="card w-full bg-white shadow-md rounded-lg p-4 mb-5">
+    <div className="card w-full border border-gray-500 shadow-lg text-white rounded-lg  mb-5">
       {/* Car Details */}
-      <img className="h-[200px] w-full " src={image} alt="" />
-
-
-      <h2 className="text-xl font-bold text-gray-800">{carmodel}</h2>
-      <p className="text-gray-600 mt-1">
-        <strong>Price:</strong> ${price}/day
+      <img className="h-[250px] w-full bg-cover " src={image} alt="" />
+<div className="">
+  
+<div className="p-4 grid">
+     <h2 className="text-lg font-bold ">{carmodel}</h2>
+      <p className=" mt-1">
+        {Registration_Number}
       </p>
-      <p className="text-gray-600 mt-1">
+     
+      <p className="text-white mt-1">
+        ${price}/day
+      </p>
+      <p className=" mt-1">
+        {Description.slice(0, 50)}.......
+      </p>
+ 
+
+      <p className=" mt-1">
         <strong>Availability:</strong> {availability}
       </p>
-      <p className="text-gray-600 mt-1">
-        <strong>Registration Number:</strong> {Registration_Number}
-      </p>
-      <p className="text-gray-600 mt-1">
-        <strong>Description:</strong> {Description}
-      </p>
-      <p className="text-gray-600 mt-1">
-        <strong>Date : {addedDate?.curentDate}</strong>
-      </p>
-
-      <p className="text-gray-600 mt-2">
-        <strong>Location:</strong> {location}
-      </p>
-
       {/* Rating */}
       <div className="rating">
-  <input type="radio" name="rating-4" className="mask mask-star-2 bg-green-500" />
-  <input type="radio" name="rating-4" className="mask mask-star-2 bg-green-500" defaultChecked />
-  <input type="radio" name="rating-4" className="mask mask-star-2 bg-green-500" />
-  <input type="radio" name="rating-4" className="mask mask-star-2 bg-green-500" />
-  <input type="radio" name="rating-4" className="mask mask-star-2 bg-green-500" />
-</div>
-
-      {/* Book Now Button */}
+        <input
+          type="radio"
+          name="rating-4"
+          className="mask mask-star-2 bg-green-500"
+        />
+        <input
+          type="radio"
+          name="rating-4"
+          className="mask mask-star-2 bg-green-500"
+          defaultChecked
+        />
+        <input
+          type="radio"
+          name="rating-4"
+          className="mask mask-star-2 bg-green-500"
+        />
+        <input
+          type="radio"
+          name="rating-4"
+          className="mask mask-star-2 bg-green-500"
+        />
+        <input
+          type="radio"
+          name="rating-4"
+          className="mask mask-star-2 bg-green-500"
+        />
+      </div>
       <Link to={`/detailsPage/${_id}`}>
-        <button className="mt-4 py-2 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
-          Book Now
+        <button className=" mt-3 py-2 px-4 bg-[#05A3D6] text-white rounded-lg hover:bg-[#0f475a] transition">
+          Book Now 
         </button>
       </Link>
+     </div>
+
+      {/* Book Now Button */}
+</div>
     </div>
   );
 };

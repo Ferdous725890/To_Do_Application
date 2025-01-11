@@ -8,27 +8,35 @@ import DownloodSection from "../../Components/CardTable.jsx/DownloodSection";
 import UserRevies from "../../Components/CardTable.jsx/UserRevies";
 import FeaturesSection from "../../Components/CardTable.jsx/FeaturesSection";
 import Offer from "../../Components/CardTable.jsx/Offer";
+import Service from "./Service";
+import Faq from "./Faq";
+import BannerVideo from "./BannerVideo";
 
 const Banner = () => {
   return (
     <div className="relative ">
-      <div>
-        <div className="hero min-h-screen">
-        <video
-  src="/assets/video.mp4"
-  className="w-full rounded-2xl lob"
-  autoPlay
-  loop
-  muted
-  playsInline
-  style={{
-    height: "calc(100vh - 5rem)", // 4rem = Navbar height
-    display: "block",
-    objectFit: "cover",
-  }}
-/>
+      {/* <div className=" ">
+        <div className="hero ">
+          <video
+            src="/assets/video.mp4"
+            className="border w-screen rounded-2xl lob"
+            autoPlay
+            loop
+            muted
+            playsInline
+            // "calc(100vh - 0rem)"
+            style={{
+              height: "calc(100vh - 10rem)",
+              width:'h-screen',
+              // 4rem = Navbar height
+              display: "block",
+              objectFit: "cover",
+            }}
+          />
 
-          <div className="hero-overlay bg-opacity-0"></div>
+          <div 
+          
+          className="hero-overlay bg-opacity-0"></div>
           <div className="hero-content text-neutral-content text-center">
             <div className=" absolute top-20">
               <h1 className="mb-5 text-5xl font-bold text-[#00C2FF] ">
@@ -43,7 +51,7 @@ const Banner = () => {
                   loop
                 ></ReactTyped>
               </h1>
-              <p className="mb-5 max-w-md text-gray-800">
+              <p className="mb-5 max-w-md ">
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut
                 assumenda excepturi exercitationem quasi. In deleniti eaque aut
                 repudiandae et a id nisi.
@@ -55,11 +63,14 @@ const Banner = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <BannerVideo></BannerVideo>
       <SecondBanner></SecondBanner>
-      <UserRevies></UserRevies>
       <Offer></Offer>
+      <Service></Service>
       <FeaturesSection></FeaturesSection>
+      <Faq></Faq>
+      <UserRevies></UserRevies>
       <DownloodSection></DownloodSection>
     </div>
   );

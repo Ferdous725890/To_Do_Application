@@ -55,9 +55,7 @@ const RegisterPage = () => {
               icon: "success",
               draggable: true,
             });
-
-            // Navigate to home page after successful registration
-            navigate("/"); // Adjust this route based on your app structure
+            navigate("/");
           })
           .catch((error) => {
             console.error("Error updating profile:", error);

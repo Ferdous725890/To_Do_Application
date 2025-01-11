@@ -9,27 +9,7 @@ const AddCar = () => {
   const { user } = useContext(Authcontext);
   const handleCardAdded = async (event) => {
     event.preventDefault();
-    // const from = event.target;
-    // const carmodel = from.carmodel.value;
-    // const price = from.price.value;
-    // const Registration_Number = from.Registration_Number.value;
-    // const Description = from.Description.value;
-    // const availability = from.availability.value;
-    // const features = from.features.value;
-    // const location = from.location.value;
-
-    // const formData = new FormData(event.target); // FormData তৈরি
-    // const selectedFeatures = formData.getAll("features"); // সরাসরি চেক করা ভ্যালু নিয়ে আসা
-    // console.log("Selected Features:", selectedFeatures);
-
-    // -------------------------------------------------------------------------------
-    // const formData = new FormData(event.target); // FormData তৈরি
-    // const allData = Object.fromEntries(formData.entries()); // ফর্মের সব ডেটা একটি অবজেক্টে রূপান্তর
-    // const {carmodel, price, Registration_Number, Description, availability,location, ...newJob } = allData;
-    // console.table({carmodel, price, Registration_Number, Description, availability,location, newJob });
-    // newJob.features = newJob.features.split('\n');
-    // console.log("Full Form Data:", allData);
-    // Get current date and time in ISO format
+   
     const currentDate = new Date();
     const formattedDate = format(currentDate, "yyyy-MM-dd");
     const formattedTime = format(currentDate, "HH:mm:ss");
@@ -49,18 +29,7 @@ const AddCar = () => {
     };
     console.log(cardAddedInformation);
 
-    // console.log(features,'-------------------my feature ');
-    //     const cardAddedInformation = {
-    //       carmodel,
-    //       price,
-    //       Registration_Number,
-    //       Description,
-    //       availability,
-    //       location,
-    //       email: user?.email,
-    //       bookingCount: "0",
-    //     };
-
+   
     try {
       await axios
         .post(`${import.meta.env.VITE_API_URL}/added_car`, cardAddedInformation)
@@ -73,7 +42,7 @@ const AddCar = () => {
           });
         });
     } catch (err) {
-      console.log(err);
+   
 
       // `${import.meta.env.VITE_API_URL}/add-job`,
     }
@@ -81,10 +50,8 @@ const AddCar = () => {
   return (
     <div
       className="
-    
-bg-gradient-to-t from-[#26cae0] to-[#d0a7f4] 
-    
-    max-w-[900px] mx-auto mt-10 rounded-lg shadow-xl text-white mb-20"
+ 
+    max-w-[900px] mx-auto  rounded-lg shadow-2xl text-white mb-20 border md:p-10 "
     >
       <form onSubmit={handleCardAdded} className=" p-10">
         <div className="grid md:grid-cols-2 gap-5">
@@ -100,7 +67,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
               type="text"
               id="CarModel"
               name="carmodel"
-              className="w-full bg-gray-700 text-[#9333EA] border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-white/10 backdrop-blur-3xl text-white  border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Car Model"
               required
             />
@@ -118,7 +85,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
               type="number"
               id="Daily_Renta_lPrice"
               name="price"
-              className="w-full bg-gray-700 border px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-white/10 backdrop-blur-3xl border px-3 py-2 text-white  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter Daily Rental Price"
               required
             />
@@ -134,10 +101,10 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
               Vehicle Registration Number
             </label>
             <input
-              type="number"
+              type="text"
               id="registrationNumber"
               name="Registration_Number"
-              className="w-full border bg-gray-700 px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border bg-white/10 backdrop-blur-3xl px-3 py-2 text-white  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder=" Vehicle Registration Number"
               required
             />
@@ -155,7 +122,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
               type="text"
               id="location"
               name="location"
-              className="w-full border bg-gray-700 px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border bg-white/10 backdrop-blur-3xl px-3 py-2 text-white  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Location"
             />
           </div>
@@ -170,7 +137,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
             type="text"
             id="Description"
             name="Description"
-            className="w-full bg-gray-700 text-[#9333EA] min-h-48 border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full bg-white/10 backdrop-blur-3xl text-white  min-h-48 border px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Description"
           />
         </div>
@@ -185,36 +152,36 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
           </label>
           <select
             name="availability"
-            className="select select-bordered bg-gray-900 w-full text-[#9333EA]"
+            className="select select-bordered bg-white/10 backdrop-blur-3xl w-full text-white "
             defaultValue="Availability"
           >
             <option disabled value="Availability">
               Availability
             </option>
-            <option value="Available">Available</option>
-            <option value="Unavailable">Unavailable</option>
+            <option className="text-black" value="Available">Available</option>
+            <option className="text-black" value="Unavailable">Unavailable</option>
           </select>
         </div>
         {/* ----------------------------- Features ---------------------------- */}
         <div className=" md:flex justify-between border mt-5 mb-5 px-5 py-2 rounded-lg">
           <label
             htmlFor="features"
-            className="block mb-2 text-base font-medium text-white"
+            className="block mb-2 text-base font-medium text-white "
           >
             Features :
           </label>
           <label className="block">
-            <input type="checkbox" name="features" value="GPS" /> GPS
+            <input type="checkbox" name="features" className="bg-[##292036]" value="GPS" /> GPS
           </label>
           <label className="block">
-            <input type="checkbox" name="features" value="AC" /> AC
+            <input type="checkbox" name="features" className="bg-[##292036]" value="AC" /> AC
           </label>
           <label className="block">
-            <input type="checkbox" name="features" value="Bluetooth" />{" "}
+            <input type="checkbox" name="features" className="bg-[##292036]" value="Bluetooth" />{" "}
             Bluetooth
           </label>
           <label className="block">
-            <input type="checkbox" name="features" value="Heated Seats" />{" "}
+            <input type="checkbox" name="features" className="bg-[##292036]" value="Heated Seats" />{" "}
             Heated Seats
           </label>
         </div>
@@ -228,7 +195,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
             type="url"
             id="image"
             name="image"
-            className="w-full border bg-gray-700 px-3 py-2 text-[#9333EA] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full border bg-white/10 backdrop-blur-3xl px-3 py-2 text-white  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Car Image URL"
             required
           />
@@ -237,7 +204,7 @@ bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]
         {/* Login Button */}
         <button
           type="submit"
-          className="w-full py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-semibold"
+          className="w-full mt-5 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-semibold"
         >
           Add_Car
         </button>

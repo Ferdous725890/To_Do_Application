@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <div className="bg-gray-900 text-white p-8 mt-10 mb-10">
+    <div className="border border-[#aa95c9] rounded-lg text-white p-8 mt-10 mb-10">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Left Section: Feedback Form */}
         <div>
@@ -14,7 +14,7 @@ const ContactUs = () => {
           </p>
           <form className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium">
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name*
               </label>
               <input
@@ -25,7 +25,7 @@ const ContactUs = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium">
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email*
               </label>
               <input
@@ -36,7 +36,7 @@ const ContactUs = () => {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium">
+              <label htmlFor="message" className="block text-sm font-medium mb-2">
                 Message*
               </label>
               <textarea

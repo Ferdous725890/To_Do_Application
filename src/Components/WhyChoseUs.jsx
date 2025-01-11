@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 const WhyChooseUs = () => {
   return (
     // py-12 bg-[#1D252D] rounded-lg border border-gray-700 shadow-4xl mt-10 mb-20
-    <section className="">
+    <section className=" ">
       <div className="text-center mb-8 mt-20">
         <h2 className="text-3xl font-bold text-white"></h2>
         <p className="text-gray-400 mt-2"></p>
