@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 
 const Offer = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-16">
+      <div className="w-full max-w-[600px] flex  justify-center items-center mx-auto">
+      <h2 className="border-b-2 pb-3 rounded-lg text-4xl text-white font-medium text-center mb-5">
+        Special Offers Just for You!
+      </h2>
 
-<h2 className="text-4xl text-white font-medium text-center mb-16">Special Offers Just for You!</h2>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center mt-10 mb-10">
         {/* Offer Card 1 */}
         <div className="group [perspective:1000px] mb-10 w-full sm:w-[80%] lg:w-[90%] h-[350px]">
@@ -35,7 +39,12 @@ const Offer = () => {
                 href="#"
                 className="inline-block mt-4 text-blue-500 hover:underline"
               >
-               <Link to={'/avilableCar'}><button className="bg-white hover:bg-gray-400 px-4 rounded-md py-[6px] text-black"> Learn More</button></Link>
+                <Link to={"/avilableCar"}>
+                  <button className="bg-white hover:bg-gray-400 px-4 rounded-md py-[6px] text-black">
+                    {" "}
+                    Learn More
+                  </button>
+                </Link>
               </a>
             </div>
           </div>
@@ -58,15 +67,23 @@ const Offer = () => {
 
             {/* Back Side */}
             <div className="absolute w-full h-full bg-slate-900 border-gray-500 border rounded-lg shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden] p-[25px] ">
-              <h2 className="text-[1.2rem] font-semibold text-white mb-4"> Rent luxury cars
+              <h2 className="text-[1.2rem] font-semibold text-white mb-4">
+                {" "}
+                Rent luxury cars
               </h2>
-              <p className="
-              mb-4 text-white">
+              <p
+                className="
+              mb-4 text-white"
+              >
                 Rent luxury cars at an unbeatable price of $99/day this holiday
                 season.
               </p>
-              <Link to={'/avilableCar'}><button className="bg-white hover:bg-gray-400 px-4 rounded-md py-[6px] text-black"> Claim Offer</button></Link>
-              
+              <Link to={"/avilableCar"}>
+                <button className="bg-white hover:bg-gray-400 px-4 rounded-md py-[6px] text-black">
+                  {" "}
+                  Claim Offer
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -84,7 +101,6 @@ const Offer = () => {
               <h2 className="text-[1.5rem] [text-shadow:2px_2px_4px_rgba(0,0,0,0.9)] font-bold text-white absolute bottom-5 left-5">
                 10% Off First Purchase
               </h2>
-    
             </div>
 
             {/* Back Side */}
@@ -100,8 +116,12 @@ const Offer = () => {
                 href="#"
                 className="inline-block mt-4 text-blue-500 hover:underline"
               >
-                   <Link to={'/avilableCar'}><button className="bg-white hover:bg-gray-400 px-4 rounded-md py-[6px] text-black"> Claim Offer</button></Link>
-          
+                <Link to={"/avilableCar"}>
+                  <button className="bg-white hover:bg-gray-400 px-4 rounded-md py-[6px] text-black">
+                    {" "}
+                    Claim Offer
+                  </button>
+                </Link>
               </a>
             </div>
           </div>

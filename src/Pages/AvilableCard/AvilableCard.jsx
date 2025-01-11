@@ -74,7 +74,7 @@ const AvilableCar = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search by car model, brand, or location"
-          className="p-2 border rounded-lg w-full"
+          className="p-2 border rounded-lg w-full bg-white/10"
         />
       </div>
 
@@ -82,9 +82,9 @@ const AvilableCar = () => {
         <select
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
-          className="p-2 border rounded-lg w-full"
+          className="p-2 border rounded-lg w-full bg-white/10"
         >
-          <option value="">Sort By</option>
+          <option  value="">Sort By</option>
           <option value="priceLowest">Price (Lowest First)</option>
           <option value="priceHighest">Price (Highest First)</option>
         </select>
@@ -105,7 +105,10 @@ const AvilableCar = () => {
         <div className={viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-6' : 'mt-6'}>
           {currentCars.length > 0 ? (
             currentCars.map((singleCar, index) => (
-              <SingleCar key={index} singleCar={singleCar} />
+              <SingleCar key={index} singleCar={singleCar}
+              
+              viewMode={viewMode}
+              />
             ))
           ) : (
             <p>No cars found matching your search.</p>

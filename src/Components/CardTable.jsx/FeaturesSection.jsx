@@ -37,8 +37,10 @@ const FeaturesSection = () => {
       className=" text-white  px-5 mt-10 mb-10 rounded-md"
     >
     
-      <div className="text-center">
-        <h2 className="text-4xl font-bold mb-20 text-[#00C2FF]">Why Choose Us</h2>
+      <div className=" w-full max-w-80 flex justify-center items-center mx-auto">
+       <div>
+       <h2 className="text-4xl font-bold mb-20 text-white border-b-2 pb-2 rounded-lg">Why Choose Us</h2>
+       </div>
 
       </div>
 

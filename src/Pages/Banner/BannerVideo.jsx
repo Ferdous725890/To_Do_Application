@@ -40,12 +40,12 @@ const BannerVideo = () => {
                   loop
                 ></ReactTyped>
               </h1>
-              <p className="mb-5 max-w-md text-white ">
+              <p className="mb-5 max-w-md text-white p-5">
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut
                 assumenda excepturi exercitationem quasi. In deleniti eaque
               </p>
 
-              <button className="border animate-bounce border px-3 py-1 text-white rounded-md hover:bg-[#00C2FF] hover:text-white">
+              <button className="border animate-bounce border px-3 py-1 text-white rounded-md hover:bg-white/10 bg-[#00C2FF] hover:text-white">
                 Get Started
               </button>
             </div>

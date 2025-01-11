@@ -62,7 +62,7 @@ console.log(car);
   };
 
 
-  const handleRatingClick = (index) => {
+  const handleRatingClicks = (index) => {
     const newRating = index + 1;
     setRating(newRating);
 
@@ -107,6 +107,7 @@ console.log(car);
                 key={index}
                 onClick={() => handleRatingClick(index)}
                 className="cursor-pointer"
+                
               >
              
                 {index < Math.floor(rating) ? (
@@ -123,7 +124,7 @@ console.log(car);
           <div className="flex items-center mt-2">
             <span className="text-[1rem] text-yellow-500 font-bold"> </span>
            
-            <span className="ml-2 text-white text-[0.9rem]">({rating}/5)</span>
+            <span className="ml-2 text-white text-[0.9rem]">(5/50)</span>
           </div>
           <div>
 

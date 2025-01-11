@@ -12,6 +12,8 @@ import Error from "../Pages/ErrorPage/ErrorHandel";
 import Banner from "../Pages/Banner/Banner";
 import Test from "../Components/TestFile/Test";
 import ContactUs from "../Components/CardTable.jsx/ContactUs";
+import BannerVideo from "../Pages/Banner/BannerVideo";
+import Navbar from "../shared Component/Provider/Navbar/Navbar";
 
 const router = createBrowserRouter([
   {
@@ -19,9 +21,18 @@ const router = createBrowserRouter([
     element: <HomePage></HomePage>,
     errorElement:<Error></Error>,
     children: [
+      // {
+      //   path: "/",
+      //   element: <BannerVideo></BannerVideo> ,
+      // },
       {
         path: "/",
         element: <Banner></Banner>,
+        children:[
+          {
+            
+          }
+        ]
       },
       {
         path: "/addCard",
@@ -72,8 +83,10 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>
       },
       
+      
    
     ],
+   
   },
 ]);
 

@@ -4,7 +4,7 @@ import { Authcontext } from '../shared Component/Authprovider/Authprovider';
 const PrivateRouter = ({children}) => {
     const {user, looding} = useContext(Authcontext)
     
-if(looding){
+if( looding){
     return <span className="loading loading-bars loading-lg"></span>
 }
 

@@ -80,7 +80,7 @@ const MyBooking = () => {
     return (
       <div>
       <div className="overflow-x-auto max-w-full mt-10 mb-[200px]">
-        <table className="table table-xs bg-[#111827] w-full">
+        <table className="table table-xs bg-[#111827] w-full bg-white/10">
           <thead>
             <tr className="shadow-lg">
               <th className="border text-center text-base font-bold text-white">Car Image</th>
@@ -100,7 +100,13 @@ const MyBooking = () => {
                 <td className="border text-center text-white text-sm">{booking.carmodel}</td>
                 <td className="border text-center text-white text-sm">{booking?.formattedDate}</td>
                 <td className="border text-center text-white text-sm">{booking.price}</td>
-                <td className="border text-center text-white text-sm">{booking.availability}</td>
+                <td className="border text-center text-white text-sm">
+
+
+                <span className="bg-yellow-400/50 px-2 rounded-md py-1 text-center">
+                pending
+                    </span>
+                </td>
                 <td className="border text-center text-white text-sm">
                   <div>
                     <button
@@ -131,7 +137,7 @@ const MyBooking = () => {
     <div>
       <div>
         <div className="overflow-x-auto mt-10 mb-[200px]">
-          <table className="table table-xs bg-[#111827]">
+          <table className="table table-xs bg-[#111827] bg-white/10">
             <thead>
               <tr className="shadow-lg">
                
@@ -149,7 +155,9 @@ const MyBooking = () => {
                   <td className="border  text-center text-white text-sm">{booking.carmodel}</td>
                   <td className="border     text-center text-white text-sm">{booking?.formattedDate}</td>
                   <td className="border     text-center text-white text-sm">{booking.price}</td>
-                  <td className="border     text-center text-white text-sm">{booking.availability}</td>
+                  <td className="border     text-center text-white text-sm"> <span className="bg-yellow-400/50 px-2 rounded-md py-1 text-center">
+                pending
+                    </span> </td>
                   <td className="border     text-center text-white text-sm">
                     <div>
                       <button className="mr-2 text-red-300" onClick={() => handelCancel(booking._id)}>Cancel</button>

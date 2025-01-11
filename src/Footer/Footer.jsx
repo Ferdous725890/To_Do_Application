@@ -1,6 +1,7 @@
 import React from 'react';
 import {CgFacebook} from "react-icons/cg";
 import {BsInstagram, BsLinkedin, BsTwitter} from "react-icons/bs";
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
       <div className='bg-[#1a0b2e] text-white'>
@@ -11,32 +12,21 @@ const Footer = () => {
           className=" w-full p-6 lg:p-9">
             <div className="flex justify-between gap-[30px] flex-wrap w-full bg-[#1a0b2e] ">
 
-                <div className="">
-                    <h3 className="text-[1.2rem] font-semibold text-text mb-2">Services</h3>
-                    <div className="flex text-white flex-col gap-[10px]">
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">UI
-                            Components</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Website
-                            Templates</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Icons</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Opacity
-                            Palette</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Blocks</p>
-                    </div>
-                </div>
-
-
+               
                 <div className="">
                     <h3 className="text-[1.2rem] font-semibold text-text mb-2">Company</h3>
                     <div className="flex  flex-col gap-[10px]">
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Service</p>
+                        <Link to="/avilableCar" >
+                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">AvilableCar</p>
+                        </Link>
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Features</p>
                         <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Our
                             Team</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Portfolio</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Blog</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Contact
-                            Us</p>
+                      
+                      <Link to={'/contactus'}>
+                      <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Contact
+                      Us</p>
+                      </Link>
                     </div>
                 </div>
 
@@ -44,12 +34,13 @@ const Footer = () => {
                 <div className="">
                     <h3 className="text-[1.2rem] font-semibold text-text mb-2">Our Social Media</h3>
                     <div className="flex       flex-col gap-[10px]">
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Dribbble</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Behance</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Medium</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Instagram</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Facebook</p>
-                        <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Twitter</p>
+                        <a target='_blank' href="https://www.facebook.com/md.ferdous.hossen.786069"> <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Facebook</p></a>
+                        <a target='_blank' href="https://www.linkedin.com/"> <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">Linkedin</p></a>
+                        <a target='_blank' href="https://www.youtube.com/"> <p className="text-[0.9rem] text-text hoer:text-primary cursor-pointer transition-all duration-200">Youtube</p></a>
+                        <a target='_blank' href="https://x.com/?lang=en"> <p className="text-[0.9rem] text-text hoer:text-primary cursor-pointer transition-all duration-200">Twitter</p></a>
+                        <a target='_blank' href="https://www.instagram.com/"> <p className="text-[0.9rem] text-text hoer:text-primary cursor-pointer transition-all duration-200">Instagram</p></a>
+
+                       
                     </div>
                 </div>
 
@@ -76,7 +67,7 @@ const Footer = () => {
 
                    
 
-                <p className="text-[0.9rem] text-gray-600">© 2024 Renfify. All Rights
+                <p className="text-[0.9rem] text-gray-600">© 2025 Renfify. All Rights
                     Reserved. </p>
 
                 <div className="flex items-center gap-[10px] text-text">

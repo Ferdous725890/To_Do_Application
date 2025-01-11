@@ -11,12 +11,13 @@ const HomePage = () => {
       <header>
         <Navbar></Navbar>
         
+        
       </header>
       {/* ---------- */}
     
       {/*  */}
       {/*---------------------------Main Section------------------------- */}
-      <main className=" container mx-auto  w-11/12" >
+      <main className="min-h-[calc(100vh-10rem)] container mx-auto  w-11/12" >
         <Outlet>
         </Outlet>
       </main>

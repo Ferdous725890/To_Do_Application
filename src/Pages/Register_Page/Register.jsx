@@ -109,8 +109,8 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="p-10 mt-10 mb-10 shadow-lg rounded-lg flex items-center justify-center">
-      <div className="max-w-[800px] w-full bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg p-8 text-white">
+    <div className="p-10 mb-10 shadow-lg rounded-lg flex items-center justify-center">
+      <div className="max-w-[800px] w-full bg-white/10 bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg p-8 text-white">
         <h1 className="text-2xl font-bold text-center mb-6">Register</h1>
         <form onSubmit={handelRegister} className="p-8">
           <div className="grid md:grid-cols-2 gap-5">
@@ -126,7 +126,7 @@ const RegisterPage = () => {
                 type="text"
                 name="username"
                 id="username"
-                className="w-full px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full bg-white/10 px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Enter your username"
               />
             </div>
@@ -140,7 +140,7 @@ const RegisterPage = () => {
                 type="text"
                 name="photo"
                 id="photo"
-                className="w-full px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 bg-white/10 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Photo URL"
               />
             </div>
@@ -155,7 +155,7 @@ const RegisterPage = () => {
               type="email"
               name="email"
               id="email"
-              className="w-full px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-3 py-2 bg-white/10 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your email"
             />
           </div>
@@ -174,7 +174,7 @@ const RegisterPage = () => {
                   type={showPassword ? "text" : "password"}
                   name="password"
                   id="password"
-                  className="w-full px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-3 py-2 bg-white/10 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Enter your password"
                 />
                 <div
@@ -199,7 +199,7 @@ const RegisterPage = () => {
                   type={showConfirmPassword ? "text" : "password"}
                   name="confirmpaddword"
                   id="confirm-password"
-                  className="w-full px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-3 py-2 bg-gray-700 rounded-lg bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Confirm your password"
                 />
                 <div
@@ -221,7 +221,7 @@ const RegisterPage = () => {
           </button>
           <button
             type="submit"
-            className="w-full py-2 mb-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-semibold"
+            className="w-full py-2 mb-3 bg-purple-600 hover:bg-purple-700 bg-white/10 rounded-lg text-white font-semibold"
           >
             Register
           </button>
@@ -238,7 +238,7 @@ const RegisterPage = () => {
 
         {/* Google Login Button */}
         <div onClick={handelGoogleLogin} className="mt-2 px-8">
-          <button className="w-full py-2 text-white font-semibold bg-blue-400 rounded-md">
+          <button className="w-full py-2 text-white font-semibold bg-blue-400 rounded-md bg-white/10">
             Google Login
           </button>
         </div>

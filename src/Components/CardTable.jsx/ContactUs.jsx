@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <div className="border border-[#aa95c9] rounded-lg text-white p-8 mt-10 mb-10">
+    <div className="border border-[#aa95c9] bg-white/10 rounded-lg text-white p-8 mb-10">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Left Section: Feedback Form */}
         <div>
@@ -21,7 +21,7 @@ const ContactUs = () => {
                 type="text"
                 id="name"
                 placeholder="Enter Name..."
-                className="w-full p-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
+                className="w-full p-2 rounded-md bg-white/10 bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
               />
             </div>
             <div>
@@ -32,7 +32,7 @@ const ContactUs = () => {
                 type="email"
                 id="email"
                 placeholder="Enter Email..."
-                className="w-full p-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
+                className="w-full p-2 bg-white/10 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
               />
             </div>
             <div>
@@ -42,13 +42,13 @@ const ContactUs = () => {
               <textarea
                 id="message"
                 placeholder="Write Here..."
-                className="w-full p-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
+                className="w-full p-2 rounded-md bg-white/10 bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
                 rows="5"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-md text-white font-medium"
+              className="px-4 py-2 bg-white/10 bg-blue-500 hover:bg-blue-600 rounded-md text-white font-medium"
             >
               Send Message
             </button>

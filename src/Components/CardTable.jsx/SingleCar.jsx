@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SingleCar = ({ singleCar }) => {
+const SingleCar = ({ singleCar,viewMode  }) => {
   const {
     _id,
     carmodel,
@@ -17,7 +17,10 @@ const SingleCar = ({ singleCar }) => {
   return (
     <div className="card w-full border border-gray-500 shadow-lg text-white rounded-lg  mb-5">
       {/* Car Details */}
-      <img className="h-[250px] w-full bg-cover " src={image} alt="" />
+      <img className={
+        `
+      ${viewMode === 'grid' ? 'h-[250px]' : "h-full max-h-[700px]"} 
+          w-full bg-cover`} src={image} alt="" />
 <div className="">
   
 <div className="p-4 grid">
@@ -43,27 +46,32 @@ const SingleCar = ({ singleCar }) => {
           type="radio"
           name="rating-4"
           className="mask mask-star-2 bg-green-500"
+          disabled
         />
         <input
           type="radio"
           name="rating-4"
           className="mask mask-star-2 bg-green-500"
           defaultChecked
+          disabled
         />
         <input
           type="radio"
           name="rating-4"
           className="mask mask-star-2 bg-green-500"
+          disabled
         />
         <input
           type="radio"
           name="rating-4"
           className="mask mask-star-2 bg-green-500"
+          disabled
         />
         <input
           type="radio"
           name="rating-4"
           className="mask mask-star-2 bg-green-500"
+          disabled
         />
       </div>
       <Link to={`/detailsPage/${_id}`}>

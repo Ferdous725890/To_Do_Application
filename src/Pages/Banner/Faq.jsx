@@ -2,8 +2,8 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div >
-      <h2>Frequently Asked Questions</h2>
+    <div className="mt-16 mb-10 " >
+      <h2 className="text-center mt-10 mb-10 text-4xl text-white border-b pb-5">Frequently Asked Questions</h2>
       <div
         tabIndex={0}
         className="collapse bg-white/10 backdrop-blur-3xl border-b-4 border-[#7c3ed3] mb-5 collapse-plus bg-base-200 "

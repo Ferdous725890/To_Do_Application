@@ -50,9 +50,12 @@ const UserReviews = () => {
   return (
     <div className="mt-12 h-[300px] hidden lg:block">
       <div>
-        <h2 className="text-4xl mb-12 text-center text-[#00C2FF]">
+        <div className="w-full max-w-[600px] flex  justify-center items-center mx-auto">
+
+        <h2 className=" border-b-2 pb-2 rounded-lg text-4xl text-white px-2 mb-12 text-center ">
           Testimonial
         </h2>
+        </div>
       </div>
       <div className="bg-gradient-to-r from-white/10  to-[#54839B] w-5/12 mx-auto rounded-lg h-[250px] relative">
         <div className="flex justify-between " >

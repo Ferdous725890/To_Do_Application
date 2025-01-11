@@ -64,6 +64,7 @@ const Banner = () => {
           </div>
         </div>
       </div> */}
+      
       <BannerVideo></BannerVideo>
       <SecondBanner></SecondBanner>
       <Offer></Offer>

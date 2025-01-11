@@ -107,7 +107,7 @@ const CarDetailsPage = () => {
         </div>
 
         {/* Details Section */}
-        <div className="p-6 space-y-1 border">
+        <div className="p-6 space-y-1 ">
           <h3 className="text-xl font-bold text-white ">
             <span className="">{carmodel}</span>
           </h3>

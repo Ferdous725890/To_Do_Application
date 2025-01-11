@@ -107,13 +107,13 @@ const MyCar = () => {
   };
 
   return (
-    <div className="mt-10 md:mb-[300px]">
+    <div className=" md:mb-[300px]">
  
       <div className="flex justify-end mb-4">
         <select
           value={sortCriteria}
           onChange={handleSortChange}
-          className="select select-bordered w-full max-w-xs"
+          className="select select-bordered w-full max-w-xs bg-white/10"
         >
           <option value="">Sort By</option>
           <option value="dateNewest">Date Added (Newest First)</option>
@@ -130,7 +130,7 @@ const MyCar = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="table table-xs">
+          <table className="table table-xs bg-white/10">
             <thead>
               <tr className="border">
                 <th className="border text-center border-gray-400 font-bold text-base text-white">

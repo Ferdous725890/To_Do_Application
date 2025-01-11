@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate, Outlet } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineLogin } from "react-icons/ai";
 import { Authcontext } from "../../Authprovider/Authprovider";
@@ -7,199 +7,456 @@ import { Authcontext } from "../../Authprovider/Authprovider";
 const Navbar = () => {
   const { user, userLogOut } = useContext(Authcontext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate()
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
-    console.log("Btn clicked");
-    userLogOut().then((result) => {
-      console.log("Log out successful", result);
-      navigate('/login')
+    userLogOut().then(() => {
+      navigate("/login");
     });
   };
 
+  const linkClass = "relative text-[#00C2FF] font-bold px-5 py-[3px] flex items-center";
+  const activeClass = "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-[#00C2FF] after:w-full after:scale-x-100 after:origin-left after:transition-transform after:duration-300";
+  const hoverClass = "hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:h-[2px] hover:after:bg-[#00C2FF] hover:after:w-full hover:after:scale-x-100 hover:after:origin-left hover:after:transition-transform hover:after:duration-300 hover:after:scale-x-0";
+
   const linksNotUser = (
-    <>
-      <Link
-        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+    < >
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/"
       >
-        <FaHome className="text-lg mr-2" /> Home
-      </Link>
-      <Link
-        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+         Home
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/avilableCar"
       >
-        <FaHome className="text-lg mr-2" /> Available Cars
-      </Link>
+         Available Cars
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
+        to="/contactus"
+      >
+        Contact Us
+      </NavLink>
     </>
   );
 
   const links = (
     <>
-      <Link
-        className="text-[#00C2FF] hover: font-bold px-5 py-[3px] rounded-md flex items-center"
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/"
       >
         Home
-      </Link>
-      <Link
-        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/addCard"
       >
         Add Car
-      </Link>
-      <Link
-        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/myCar"
       >
         My Cars
-      </Link>
-      <Link
-        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/avilableCar"
       >
         Available Cars
-      </Link>
-      <Link
-        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/MyBooking"
       >
         My Bookings
-      </Link>
-      <Link
-        className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `${linkClass} ${isActive ? activeClass : hoverClass}`
+        }
         to="/contactus"
       >
-        ContactUs
-      </Link>
+        Contact Us
+      </NavLink>
     </>
   );
 
-  // border-b
-
   return (
-   <div>
-     <div className=" bg-[#1a0b2e] backdrop-blur-3xl shadow-lg fixed top-0 left-0 right-0 z-50 opacity-95 backdrop-blur-2xl overflow-hidden">
-      <div className="container w-11/12 mx-auto  bg-[#1D252D] bg-[#1a0b2e] ">
-        <div className="navbar flex justify-between items-center">
-          {/* Mobile Menu Toggle */}
-          <div className="flex lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="btn btn-square btn-ghost"
-            >
-              {isMenuOpen ? (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  ></path>
-                </svg>
-              ) : (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
-              )}
-            </button>
-          </div>
-
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <img
-              className="w-[120px]"
-              src="https://i.ibb.co.com/XVnJ0dv/1e3f54f3-a1b0-425b-9f0e-c8494b5164a2.png"
-              alt="Logo"
-            />
-          </div>
-
-          {/* Links */}
-          <div className="hidden lg:flex  ">
-            {user?.email ? links : linksNotUser}
-          </div>
-
-          {/* User Menu */}
-          <div className="flex">
-            {!user?.email ? (
-              <Link
-                className="border text-[#00C2FF] font-bold px-3 py-[3px] rounded-md flex items-center"
-                to="/login"
+    <div>
+      <div className="bg-[#1a0b2e] backdrop-blur-3xl shadow-lg fixed top-0 left-0 right-0 z-50 opacity-95">
+        <div className="container w-11/12 mx-auto bg-[#1a0b2e]">
+          <div className="navbar flex justify-between items-center">
+            {/* Mobile Menu Toggle */}
+            <div className="flex lg:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="btn btn-square btn-ghost"
               >
-                <AiOutlineLogin className="text-lg mr-2" /> Log In
-              </Link>
-            ) : (
-              <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                {isMenuOpen ? (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    ></path>
+                  </svg>
+                )}
+              </button>
+            </div>
+
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <img
+                className="w-[120px]"
+                src="https://i.ibb.co.com/XVnJ0dv/1e3f54f3-a1b0-425b-9f0e-c8494b5164a2.png"
+                alt="Logo"
+              />
+            </div>
+
+            {/* Links */}
+            <div className="hidden lg:flex">{user?.email ? links : linksNotUser}</div>
+
+            {/* User Menu */}
+            <div className="flex">
+              {!user?.email ? (
+               <div className="flex">
+                 <Link
+                  className="border mr-5 text-[#00C2FF] font-bold px-3 py-[3px] rounded-md flex items-center"
+                  to="/login"
                 >
-                  {/* Use user.photoURL for the avatar */}
-                  <div className="w-10 rounded-full">
-                    <img
-                    referrerpolicy="no-referrer"
-                      alt="User Avatar"
-                      src={user && user.photoURL || 'https://i.ibb.co.com/0nvdFb5/Screenshot-54.png'}
-                    />
+                  <AiOutlineLogin className="text-lg mr-2" /> Log In
+                </Link>
+                 <Link
+                  className="border text-[#00C2FF] font-bold px-3 py-[3px] rounded-md flex items-center"
+                  to="/register"
+                >
+                  <AiOutlineLogin className="text-lg mr-2" /> Register now
+                </Link>
+               </div>
+              ) : (
+                <div className="relative">
+                  <div
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        referrerPolicy="no-referrer"
+                        alt="User Avatar"
+                        src={
+                          (user && user.photoURL) ||
+                          "https://i.ibb.co.com/0nvdFb5/Screenshot-54.png"
+                        }
+                      />
+                    </div>
                   </div>
+                  {isDropdownOpen && (
+                    <ul
+                      className="absolute right-0 mt-2 menu bg-base-100 rounded-box z-[10] w-52 p-2 shadow"
+                    >
+                      <li>
+                        <a className="justify-between">
+                          Profile <span className="badge">New</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a>Settings</a>
+                      </li>
+                      <li>
+                        <button onClick={handleLogOut}>Logout</button>
+                      </li>
+                    </ul>
+                  )}
                 </div>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-                >
-                  <li>
-                    <a className="justify-between">
-                      Profile <span className="badge">New</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>Settings</a>
-                  </li>
-                  <li>
-                    <button onClick={handleLogOut}>Logout</button>
-                  </li>
-                </ul>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
+
+        {/* Responsive Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden">
+            <div className="menu bg-[#1D252D] space-y-2 px-4 py-2">
+              {user?.email ? links : linksNotUser}
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Responsive Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden">
-          <div className="menu bg-[#1D252D] space-y-2 px-4 py-2">
-            {user?.email ? links : linksNotUser}
-          </div>
-        </div>
-      )}
+      <div className="pt-[100px]"></div>
+      <div>
+      
+      </div>
     </div>
-
-    <div className="pt-[100px]">
-
-    </div>
- 
-
-   </div>
   );
 };
 
 export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useContext, useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import { FaHome } from "react-icons/fa";
+// import { AiOutlineLogin } from "react-icons/ai";
+// import { Authcontext } from "../../Authprovider/Authprovider";
+
+// const Navbar = () => {
+//   const { user, userLogOut } = useContext(Authcontext);
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const navigate = useNavigate();
+
+//   const handleLogOut = () => {
+//     console.log("Btn clicked");
+//     userLogOut().then((result) => {
+//       console.log("Log out successful", result);
+//       navigate("/login");
+//     });
+//   };
+
+//   const linksNotUser = (
+//     <>
+//       <Link
+//         className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/"
+//       >
+//          Home
+//       </Link>
+//       <Link
+//         className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/avilableCar"
+//       >
+//          Available Cars
+//       </Link>
+//     </>
+//   );
+
+//   const links = (
+//     <>
+//       <Link
+//         className="text-[#00C2FF] hover: font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/"
+//       >
+//         Home
+//       </Link>
+//       <Link
+//         className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/addCard"
+//       >
+//         Add Car
+//       </Link>
+//       <Link
+//         className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/myCar"
+//       >
+//         My Cars
+//       </Link>
+//       <Link
+//         className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/avilableCar"
+//       >
+//         Available Cars
+//       </Link>
+//       <Link
+//         className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/MyBooking"
+//       >
+//         My Bookings
+//       </Link>
+//       <Link
+//         className="text-[#00C2FF] font-bold px-5 py-[3px] rounded-md flex items-center"
+//         to="/contactus"
+//       >
+//         ContactUs
+//       </Link>
+//     </>
+//   );
+
+//   // border-b
+
+//   return (
+//     <div>
+//       <div className=" bg-[#1a0b2e] backdrop-blur-3xl shadow-lg fixed top-0 left-0 right-0 z-50 opacity-95 backdrop-blur-2xl overflow-hidden">
+//         <div className="container w-11/12 mx-auto  bg-[#1D252D] bg-[#1a0b2e] ">
+//           <div className="navbar flex justify-between items-center">
+//             {/* Mobile Menu Toggle */}
+//             <div className="flex lg:hidden">
+//               <button
+//                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+//                 className="btn  btn-square btn-ghost"
+//               >
+//                 {isMenuOpen ? (
+//                   <svg
+//                     className="w-6 h-6"
+//                     fill="none"
+//                     stroke="currentColor"
+//                     viewBox="0 0 24 24"
+//                     xmlns="http://www.w3.org/2000/svg"
+//                   >
+//                     <path
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                       strokeWidth="2"
+//                       d="M6 18L18 6M6 6l12 12"
+//                     ></path>
+//                   </svg>
+//                 ) : (
+//                   <svg
+//                     className="w-6 h-6"
+//                     fill="none"
+//                     stroke="currentColor"
+//                     viewBox="0 0 24 24"
+//                     xmlns="http://www.w3.org/2000/svg"
+//                   >
+//                     <path
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                       strokeWidth="2"
+//                       d="M4 6h16M4 12h16M4 18h16"
+//                     ></path>
+//                   </svg>
+//                 )}
+//               </button>
+//             </div>
+
+//             {/* Logo */}
+//             <div className="flex-shrink-0">
+//               <img
+//                 className="w-[120px]"
+//                 src="https://i.ibb.co.com/XVnJ0dv/1e3f54f3-a1b0-425b-9f0e-c8494b5164a2.png"
+//                 alt="Logo"
+//               />
+//             </div>
+
+//             {/* Links */}
+//             <div className="hidden lg:flex  ">
+//               {user?.email ? links : linksNotUser}
+//             </div>
+
+//             {/* User Menu */}
+//             <div className="flex">
+//               {!user?.email ? (
+//                 <Link
+//                   className="border text-[#00C2FF] font-bold px-3 py-[3px] rounded-md flex items-center"
+//                   to="/login"
+//                 >
+//                   <AiOutlineLogin className="text-lg mr-2" /> Log In
+//                 </Link>
+//               ) : (
+//                 <div className="dropdown dropdown-end">
+//                   <div
+//                     tabIndex={0}
+//                     role="button"
+//                     className="btn btn-ghost btn-circle avatar"
+//                   >
+//                     {/* Use user.photoURL for the avatar */}
+//                     <div className="w-10 rounded-full">
+//                       <img
+//                         referrerpolicy="no-referrer"
+//                         alt="User Avatar"
+//                         src={
+//                           (user && user.photoURL) ||
+//                           "https://i.ibb.co.com/0nvdFb5/Screenshot-54.png"
+//                         }
+//                       />
+//                     </div>
+//                   </div>
+//                   <ul
+//                     tabIndex={0}
+//                     className="menu bg-red-500 menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow"
+//                   >
+//                     <li>
+//                       <a className="justify-between">
+//                         Profile <span className="badge">New</span>
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a>Settings</a>
+//                     </li>
+//                     <li>
+//                       <button onClick={handleLogOut}>Logout</button>
+//                     </li>
+//                   </ul>
+//                 </div>
+//               )}
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Responsive Mobile Menu */}
+//         {isMenuOpen && (
+//           <div className="lg:hidden">
+//             <div className="menu bg-[#1D252D]   space-y-2 px-4 py-2">
+//               {user?.email ? links : linksNotUser}
+//             </div>
+//           </div>
+//         )}
+//       </div>
+
+//       <div className="pt-[100px]"></div>
+//     </div>
+//   );
+// };
+
+// export default Navbar;
