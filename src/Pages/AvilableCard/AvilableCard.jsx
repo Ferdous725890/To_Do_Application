@@ -103,7 +103,7 @@ const AvilableCar = () => {
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className={viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-6' : 'mt-6'}>
+        <div className={viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-6' : 'mt-6'}>
           {currentCars.length > 0 ? (
             currentCars.map((singleCar, index) => (
               <SingleCar key={index} singleCar={singleCar}

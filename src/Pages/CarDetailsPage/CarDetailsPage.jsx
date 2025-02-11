@@ -96,27 +96,29 @@ const CarDetailsPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="max-w-4xl grid grid-cols-2 w-[1000px] border p-5 rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
-        <div className="flex  items-center justify-center rounded-lg">
+    <div className="min-h-[calc(100vh-9rem)] flex items-center justify-center p-6">
+      <div className="max-w-4xl grid md:grid-cols-2 w-[1000px] border p-5 rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
+        <div className="flex items-center justify-center rounded-lg">
           <img
             src={image}
             alt={"Car"}
-            className="w-[700px] h-[300px] items-center justify-center rounded-lg  object-cover"
+            className="lg:max-w-[700px] w-full border mb-3 lg:h-[300px] items-center justify-center rounded-lg  object-cover"
           />{" "}
         </div>
 
         {/* Details Section */}
-        <div className="p-6 space-y-1 ">
+        <div className="lg:pl-10 md:pl-5">
           <h3 className="text-xl font-bold text-white ">
             <span className="">{carmodel}</span>
           </h3>
-          <p className="text-white text-sm">{Description}</p>
+        <p className="text-white text-sm mt-2">{Description}</p>
+        <div className="grid md:grid-cols-2">
 
-          <p className="text-white font">{availability}</p>
-          <p className="text-white">{formattedDate}</p>
+          <p className="text-white mt-2">{formattedDate}</p>
+<p className="text-white font mt-2">{availability}</p>
+        </div>
           {/* Features */}
-          <div className="">
+          <div className="mt-2">
             <h4 className="text-white font-bold">Features:</h4>
             <ul className="list-disc list-inside ">
               <div className="grid grid-cols-2 text-white">
@@ -125,7 +127,7 @@ const CarDetailsPage = () => {
                 ))}
               </div>
             </ul>
-          <div>
+          <div >
             <h4 className="text-xl font-semibold text-gray-800 mt-2"></h4>
             <div className="space-y-2">
               {reviews?.map((review, index) => (
@@ -139,7 +141,7 @@ const CarDetailsPage = () => {
 
           {/* Reviews */}
 
-          <div className="flex mt-2 ">
+          <div className="flex mt-2">
             {[0, 1, 2, 3, 4].map((index) => (
               <span
                 key={index}
@@ -158,12 +160,14 @@ const CarDetailsPage = () => {
           </div>
 
           {/* Book Now Button */}
-          <button
+         <div className="mt-4">
+         <button
             onClick={() => handelBooking(_id)}
-            className="w-full py-2 bg-[#05A3D6] text-white rounded-lg font-semibold transition transform hover:scale-105"
+            className="w-full py-[4px] bg-white/10  text-white rounded-lg  transition transform hover:scale-105"
           >
             Book Now
           </button>
+         </div>
         </div>
       </div>
     </div>

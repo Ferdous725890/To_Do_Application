@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SingleCar = ({ singleCar,viewMode  }) => {
+const SingleCar = ({ singleCar, viewMode }) => {
   const {
     _id,
     carmodel,
@@ -17,69 +17,87 @@ const SingleCar = ({ singleCar,viewMode  }) => {
   return (
     <div className="card w-full border border-gray-500 shadow-lg text-white rounded-lg  mb-5">
       {/* Car Details */}
-      <img className={
-        `
-      ${viewMode === 'grid w-full object-cover' ? 'h-[250px]' : "h-full max-h-[700px]"} 
-          w-full bg-cover`} src={image} alt="" />
-<div className="">
-  
-<div className="p-4 grid">
-     <h2 className="text-lg font-bold ">{carmodel}</h2>
-      <p className=" mt-1">
-        {Registration_Number}
-      </p>
-    
-      <p className=" mt-1">
-        {Description.slice(0, 50)}.......
-      </p>
- 
+      <img
+        className={`
+      ${
+        viewMode === "grid"
+          ? "min-h-[250px] h-full w-full object-cover"
+          : "h-full lg:min-h-[500px] w-full object-cover"
+      } 
+          w-full bg-cover`}
+        src={image}
+        alt=""
+      />
+      <div className="">
+        <div className="p-4 grid">
+          <h2 className="text-lg font-bold ">{carmodel}</h2>
+          <div className="grid grid-cols-2  mt-2">
+            <p className="">{Registration_Number}</p>
 
-      <p className=" mt-1">
-        <strong>Availability:</strong> {availability}
-      </p>
-      {/* Rating */}
-      <div className="rating w-20">
-        <input
-          type="radio"
-          name="rating-4"
-          className="mask mask-star-2 bg-green-500"
-          disabled
-        />
-        <input
-          type="radio"
-          name="rating-4"
-          className="mask mask-star-2 bg-green-500"
-          defaultChecked
-          disabled
-        />
-        <input
-          type="radio"
-          name="rating-4"
-          className="mask mask-star-2 bg-green-500"
-          disabled
-        />
-        <input
-          type="radio"
-          name="rating-4"
-          className="mask mask-star-2 bg-green-500"
-          disabled
-        />
-        <input
-          type="radio"
-          name="rating-4"
-          className="mask mask-star-2 bg-green-500"
-          disabled
-        />
+            <p
+              className={` ${
+                viewMode === "grid" ? `bg-white/10 rounded-md text-center` : ""
+              }`}
+            >
+              {availability}
+            </p>
+          </div>
+          <div className={` ${
+                viewMode === "grid" ? `` : "items-center md:grid grid-cols-2"
+              }`}>
+            <p className=" mt-2 mb-2">{Description.slice(0, 50)}.......</p>
+
+            {/* Rating */}
+            <div className="rating w-20">
+              <input
+                type="radio"
+                name="rating-4"
+                className="mask mask-star-2 bg-yellow-500"
+                disabled
+              />
+              <input
+                type="radio"
+                name="rating-4"
+                className="mask mask-star-2 bg-yellow-500"
+                defaultChecked
+                disabled
+              />
+              <input
+                type="radio"
+                name="rating-4"
+                className="mask mask-star-2 bg-yellow-500"
+                disabled
+              />
+              <input
+                type="radio"
+                name="rating-4"
+                className="mask mask-star-2 bg-yellow-500"
+                disabled
+              />
+              <input
+                type="radio"
+                name="rating-4"
+                className="mask mask-star-2 bg-yellow-500"
+                disabled
+              />
+            </div>
+          </div>
+
+          <Link to={`/detailsPage/${_id}`}>
+            <button
+              className={`${
+                viewMode === "grid"
+                  ? " mt-3 py-[4px] px-4 bg-white/10 w-full text-white rounded-md hover:bg-[#0f475a] transition"
+                  : "mt-3 py-[4px] px-4 bg-white/10  text-white rounded-md hover:bg-[#0f475a] transition"
+              }`}
+            >
+              Book Now
+            </button>
+          </Link>
+        </div>
+
+        {/* Book Now Button */}
       </div>
-      <Link to={`/detailsPage/${_id}`}>
-        <button className=" mt-3 py-2 px-4 bg-[#05A3D6] text-white rounded-lg hover:bg-[#0f475a] transition">
-          Book Now 
-        </button>
-      </Link>
-     </div>
-
-      {/* Book Now Button */}
-</div>
     </div>
   );
 };
