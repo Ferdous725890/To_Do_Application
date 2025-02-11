@@ -4,6 +4,8 @@ import { Authcontext } from '../../shared Component/Authprovider/Authprovider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import animation from '../../../public/animation.json'
+import { Player } from '@lottiefiles/react-lottie-player';
 const LoginPage = () => {
   const { userLogin, googleLogin } = useContext(Authcontext);
   const [showPassword, setShowPassword] = useState(false); 
@@ -154,6 +156,16 @@ const LoginPage = () => {
         >
           Google Login
         </button>
+      </div>
+
+
+      <div className='hidden lg:block'>
+      <Player
+        autoplay
+        loop
+        src={animation} 
+        style={{ height: "300px", width: "300px" }}
+      ></Player>
       </div>
     </div>
   );

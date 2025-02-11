@@ -19,7 +19,7 @@ const SingleCar = ({ singleCar,viewMode  }) => {
       {/* Car Details */}
       <img className={
         `
-      ${viewMode === 'grid' ? 'h-[250px]' : "h-full max-h-[700px]"} 
+      ${viewMode === 'grid w-full object-cover' ? 'h-[250px]' : "h-full max-h-[700px]"} 
           w-full bg-cover`} src={image} alt="" />
 <div className="">
   
@@ -28,10 +28,7 @@ const SingleCar = ({ singleCar,viewMode  }) => {
       <p className=" mt-1">
         {Registration_Number}
       </p>
-     
-      <p className="text-white mt-1">
-        ${price}/day
-      </p>
+    
       <p className=" mt-1">
         {Description.slice(0, 50)}.......
       </p>
@@ -41,7 +38,7 @@ const SingleCar = ({ singleCar,viewMode  }) => {
         <strong>Availability:</strong> {availability}
       </p>
       {/* Rating */}
-      <div className="rating">
+      <div className="rating w-20">
         <input
           type="radio"
           name="rating-4"

@@ -12,16 +12,22 @@ const ContactUs = () => {
             any inquiries or requests. Within a few hours, the administrator
             will respond to your inquiry.
           </p>
-          <form className="space-y-4">
+          <form
+            action="https://formspree.io/f/xgvvrlpe"
+            method="POST" 
+            className="space-y-4"
+          >
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name*
               </label>
               <input
                 type="text"
+                name="name" 
                 id="name"
                 placeholder="Enter Name..."
                 className="w-full p-2 rounded-md bg-white/10 bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
+                required
               />
             </div>
             <div>
@@ -30,9 +36,11 @@ const ContactUs = () => {
               </label>
               <input
                 type="email"
+                name="email" 
                 id="email"
                 placeholder="Enter Email..."
                 className="w-full p-2 bg-white/10 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
+                required
               />
             </div>
             <div>
@@ -40,10 +48,12 @@ const ContactUs = () => {
                 Message*
               </label>
               <textarea
+                name="message" 
                 id="message"
                 placeholder="Write Here..."
                 className="w-full p-2 rounded-md bg-white/10 bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
                 rows="5"
+                required
               ></textarea>
             </div>
             <button
@@ -119,7 +129,7 @@ const ContactUs = () => {
                   />
                 </svg>
               </span>
-              <p>Office@rentify.com</p>
+          
             </li>
           </ul>
         </div>
@@ -129,3 +139,6 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
+
+
