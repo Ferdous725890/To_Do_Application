@@ -85,7 +85,7 @@ const Footer = () => {
                 />
 
                 <button className="px-4 h-[61%] rounded-r-md bg-primary text-white absolute top-[24px] right-0">
-                  Submits
+                  Submit
                 </button>
               </div>
             </div>
