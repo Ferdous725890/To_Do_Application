@@ -18,9 +18,7 @@ const Footer = () => {
                     AvilableCar
                   </p>
                 </Link>
-                <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">
-                  Features
-                </p>
+               
                 <p className="text-[0.9rem] text-text hover:text-primary cursor-pointer transition-all duration-200">
                   Our Team
                 </p>
