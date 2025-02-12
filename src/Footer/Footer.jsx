@@ -101,7 +101,7 @@ const Footer = () => {
             />
 
             <p className="text-[0.9rem] text-gray-600">
-              © 2025 Renfify. All Rights Reserved.{" "}
+              © Renfify. All Rights Reserved.{" "}
             </p>
 
             <div className="flex items-center gap-[10px] text-text">
