@@ -212,13 +212,13 @@ const MyCar = () => {
       {/* Modal */}
       {open && (
         <dialog className="modal" open>
-          <div className="modal-box bg-gradient-to-t from-[#26cae0] to-[#d0a7f4]">
-            <h2 className="text-center text-2xl mb-5 font-medium text-[#7E22CE]">
+          <div className="modal-box bg-white/10 backdrop-blur-3xl">
+            <h2 className="text-center text-2xl mb-5 font-medium ">
               Update Your Data
             </h2>
             <EditCarData edit={edit} />
             <div className="modal-action">
-              <button onClick={handleCloseModal} className="btn w-full">
+              <button onClick={handleCloseModal} className="btn w-full bg-white/10 hover:bg-blue-500">
                 Close
               </button>
             </div>

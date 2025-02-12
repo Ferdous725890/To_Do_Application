@@ -45,59 +45,64 @@ const EditCarData = ({ edit }) => {
   return (
     <div>
       <form onSubmit={handleUpdate} className="text-white">
-      <div className="grid grid-cols-2 gap-5">
-  {/* Card Model */}
-  <div className="mb-4 ">
-          <label htmlFor="CarModel" className="block  mb-2 text-sm font-medium">
-            Car Model
-          </label>
-          <input
-            type="text"
-            id="CarModel"
-            name="carmodel"
-            defaultValue={edits.carmodel}
-            className="w-full border bg-gray-300 text-[#7E22CE] px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-            placeholder="Enter your car model"
-          />
+        <div className="grid grid-cols-2 gap-5">
+          {/* Card Model */}
+          <div className="mb-4 ">
+            <label
+              htmlFor="CarModel"
+              className="block  mb-2 text-sm font-medium"
+            >
+              Car Model
+            </label>
+            <input
+              type="text"
+              id="CarModel"
+              name="carmodel"
+              defaultValue={edits.carmodel}
+              className="w-full border bg-white/10 focus:border-none px-3 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 "
+              placeholder="Enter your car model"
+            />
+          </div>
+
+          {/* Daily Rental Price */}
+          <div className="mb-4">
+            <label
+              htmlFor="DailyRentalPrice"
+              className="block mb-2 text-sm font-medium"
+            >
+              Daily Rental Price
+            </label>
+            <input
+              type="number"
+              id="DailyRentalPrice"
+              name="price"
+              defaultValue={edits.price}
+              className="w-full border bg-white/10 focus:border-none  bg-gray-300 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              placeholder="Enter daily rental price"
+            />
+          </div>
         </div>
 
-        {/* Daily Rental Price */}
+        {/* Vehicle Registration Number */}
         <div className="mb-4">
-          <label htmlFor="DailyRentalPrice" className="block mb-2 text-sm font-medium">
-            Daily Rental Price
-          </label>
-          <input
-            type="number"
-            id="DailyRentalPrice"
-            name="price"
-            defaultValue={edits.price}
-            className="w-full border bg-gray-300 px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-            placeholder="Enter daily rental price"
-          />
-        </div>
-      </div>
-
-
- {/* Vehicle Registration Number */}
- <div className="mb-4">
           <label
             htmlFor="RegistrationNumber"
             className="block mb-2 text-sm font-medium"
           >
-            Vehicle Registration Number
+          Registration Number
           </label>
           <input
             type="text"
             id="RegistrationNumber"
             name="Registration_Number"
             defaultValue={edits.Registration_Number}
-            className="w-full bg-gray-300 border px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full bg-gray-300 border px-3 py-2 bg-white/10 focus:border-none  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Enter vehicle registration number"
           />
         </div>
 
-  {/* Description */}
-  <div className="mb-4">
+        {/* Description */}
+        <div className="mb-4">
           <label
             htmlFor="Description"
             className="block mb-2 text-sm font-medium"
@@ -108,11 +113,10 @@ const EditCarData = ({ edit }) => {
             id="Description"
             name="Description"
             defaultValue={edits.Description}
-            className="w-full bg-gray-300 min-h-32 border px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full bg-gray-300 min-h-32 border px-3 py-2 bg-white/10 focus:border-none  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Enter description"
           />
         </div>
-
 
         {/* Availability */}
         <div className="mb-4">
@@ -125,15 +129,12 @@ const EditCarData = ({ edit }) => {
           <select
             name="availability"
             defaultValue={edits.availability}
-            className="select bg-gray-300 select-bordered w-full text-[#7E22CE]"
+            className="select bg-gray-300 select-bordered w-full bg-white/10 focus:border-none text-black  "
           >
             <option value="Available">Available</option>
             <option value="Unavailable">Unavailable</option>
           </select>
         </div>
-
-       
-      
 
         {/* Location */}
         <div className="mb-4">
@@ -145,7 +146,7 @@ const EditCarData = ({ edit }) => {
             id="location"
             name="location"
             defaultValue={edits.location}
-            className="w-full bg-gray-300 border px-3 py-2 text-[#7E22CE] rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full bg-gray-300 border px-3 py-2 bg-white/10 focus:border-none  rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Enter location"
           />
         </div>
@@ -153,7 +154,7 @@ const EditCarData = ({ edit }) => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-2  bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-semibold"
+          className="w-full py-2  bg-white/10 hover:bg-blue-500 rounded-lg text-white font-semibold"
         >
           Update
         </button>

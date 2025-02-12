@@ -111,12 +111,11 @@ const CarDetailsPage = () => {
           <h3 className="text-xl font-bold text-white ">
             <span className="">{carmodel}</span>
           </h3>
-        <p className="text-white text-sm mt-2">{Description}</p>
-        <div className="grid md:grid-cols-2">
-
-          <p className="text-white mt-2">{formattedDate}</p>
-<p className="text-white font mt-2">{availability}</p>
-        </div>
+          <p className="text-white text-sm mt-2">{Description}</p>
+          <div className="grid md:grid-cols-2">
+            <p className="text-white mt-2">{formattedDate}</p>
+            <p className="text-white font mt-2">{availability}</p>
+          </div>
           {/* Features */}
           <div className="mt-2">
             <h4 className="text-white font-bold">Features:</h4>
@@ -127,16 +126,16 @@ const CarDetailsPage = () => {
                 ))}
               </div>
             </ul>
-          <div >
-            <h4 className="text-xl font-semibold text-gray-800 mt-2"></h4>
-            <div className="space-y-2">
-              {reviews?.map((review, index) => (
-                <p key={index} className="text-blue-400 italic">
-                  "{review}"
-                </p>
-              ))}
+            <div>
+              <h4 className="text-xl font-semibold text-gray-800 mt-2"></h4>
+              <div className="space-y-2">
+                {reviews?.map((review, index) => (
+                  <p key={index} className="text-blue-400 italic">
+                    "{review}"
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
           </div>
 
           {/* Reviews */}
@@ -160,14 +159,14 @@ const CarDetailsPage = () => {
           </div>
 
           {/* Book Now Button */}
-         <div className="mt-4">
-         <button
-            onClick={() => handelBooking(_id)}
-            className="w-full py-[4px] bg-white/10  text-white rounded-lg  transition transform hover:scale-105"
-          >
-            Book Now
-          </button>
-         </div>
+          <div className="mt-4">
+            <button
+              onClick={() => handelBooking(_id)}
+              className="w-full py-[4px] bg-white/10  text-white rounded-lg  transition transform hover:scale-105"
+            >
+              Book Now
+            </button>
+          </div>
         </div>
       </div>
     </div>

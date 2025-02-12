@@ -1,13 +1,12 @@
-
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import SingleCar from '../../Components/CardTable.jsx/SingleCar';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import SingleCar from "../../Components/CardTable.jsx/SingleCar";
 
 const AvilableCar = () => {
   const [allCar, setAllCar] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [viewMode, setViewMode] = useState('grid');
-  const [sortOption, setSortOption] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [viewMode, setViewMode] = useState("grid");
+  const [sortOption, setSortOption] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const carsPerPage = 10;
   const [loading, setLoading] = useState(true);
@@ -24,29 +23,33 @@ const AvilableCar = () => {
       );
       setAllCar(data);
     } catch (error) {
-      
     } finally {
       setLoading(false);
     }
   };
 
   const filteredCars = allCar
-    .filter(car =>
-      car.carmodel.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      car.brand?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      car.location.toLowerCase().includes(searchTerm.toLowerCase())
+    .filter(
+      (car) =>
+        car.carmodel.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.brand?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.location.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => {
-      if (sortOption === 'dateNewest') {
-        return new Date(b.addedDate?.curenttime) - new Date(a.addedDate?.curenttime);
+      if (sortOption === "dateNewest") {
+        return (
+          new Date(b.addedDate?.curenttime) - new Date(a.addedDate?.curenttime)
+        );
       }
-      if (sortOption === 'dateOldest') {
-        return new Date(a.addedDate?.curenttime) - new Date(b.addedDate?.curenttime);
+      if (sortOption === "dateOldest") {
+        return (
+          new Date(a.addedDate?.curenttime) - new Date(b.addedDate?.curenttime)
+        );
       }
-      if (sortOption === 'priceLowest') {
+      if (sortOption === "priceLowest") {
         return a.price - b.price;
       }
-      if (sortOption === 'priceHighest') {
+      if (sortOption === "priceHighest") {
         return b.price - a.price;
       }
       return 0;
@@ -62,7 +65,7 @@ const AvilableCar = () => {
   };
 
   const handleViewToggle = () => {
-    setViewMode(viewMode === 'grid' ? 'list' : 'grid');
+    setViewMode(viewMode === "grid" ? "list" : "grid");
   };
 
   return (
@@ -85,7 +88,7 @@ const AvilableCar = () => {
           onChange={(e) => setSortOption(e.target.value)}
           className="p-2 border rounded-lg w-full bg-white/10"
         >
-          <option  value="">Sort By</option>
+          <option value="">Sort By</option>
           <option value="priceLowest">Price (Lowest First)</option>
           <option value="priceHighest">Price (Highest First)</option>
         </select>
@@ -95,7 +98,7 @@ const AvilableCar = () => {
         onClick={handleViewToggle}
         className="mt-4 md:px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
       >
-        Switch to {viewMode === 'grid' ? 'List' : 'Grid'} View
+        Switch to {viewMode === "grid" ? "List" : "Grid"} View
       </button>
 
       {loading ? (
@@ -103,12 +106,19 @@ const AvilableCar = () => {
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className={viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-6' : 'mt-6'}>
+        <div
+          className={
+            viewMode === "grid"
+              ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-6"
+              : "mt-6"
+          }
+        >
           {currentCars.length > 0 ? (
             currentCars.map((singleCar, index) => (
-              <SingleCar key={index} singleCar={singleCar}
-              
-              viewMode={viewMode}
+              <SingleCar
+                key={index}
+                singleCar={singleCar}
+                viewMode={viewMode}
               />
             ))
           ) : (
@@ -123,7 +133,9 @@ const AvilableCar = () => {
             key={index}
             onClick={() => handlePageChange(index + 1)}
             className={`px-4 py-2 border rounded-md ${
-              currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'
+              currentPage === index + 1
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200"
             }`}
           >
             {index + 1}
@@ -135,20 +147,3 @@ const AvilableCar = () => {
 };
 
 export default AvilableCar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

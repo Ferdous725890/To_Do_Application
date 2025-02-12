@@ -39,8 +39,8 @@ const Service = () => {
     <div className="p-6 ">
       <div className="w-full max-w-[600px] flex  justify-center items-center mx-auto">
 
-      <h1 className="border-b-2 pb-2 rounded-lg text-4xl font-bold text-center mb-12">
-        Affordable Car Rental Packages
+      <h1 className="border-b-2 pb-2 rounded-lg text-4xl font-bold text-center mb-12 text-white">
+        Affordable Car Rental Package
       </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
