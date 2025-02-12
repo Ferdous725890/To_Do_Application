@@ -214,7 +214,7 @@ const MyCar = () => {
         <dialog className="modal" open>
           <div className="modal-box bg-white/10 backdrop-blur-3xl">
             <h2 className="text-center text-2xl mb-5 font-medium ">
-              Update Your Data
+              Update Your-Data
             </h2>
             <EditCarData edit={edit} />
             <div className="modal-action">
