@@ -139,7 +139,7 @@ const EditCarData = ({ edit }) => {
         {/* Location */}
         <div className="mb-4">
           <label htmlFor="location" className="block mb-2 text-sm font-medium">
-            Locations
+            Location
           </label>
           <input
             type="text"
