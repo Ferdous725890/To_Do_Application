@@ -164,7 +164,7 @@ const CarDetailsPage = () => {
               onClick={() => handelBooking(_id)}
               className="w-full py-[4px] bg-white/10  text-white rounded-lg  transition transform hover:scale-105"
             >
-              Book Now
+              Book-Now
             </button>
           </div>
         </div>
