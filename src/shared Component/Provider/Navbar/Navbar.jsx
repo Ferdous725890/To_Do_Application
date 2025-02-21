@@ -16,7 +16,7 @@ const Navbar = () => {
     });
   };
 
-  const linkClass = "relative text-[#00C2FF] font-bold px-5 py-[3px] flex items-center";
+  const linkClass = "relative text-white px-5 py-[3px] flex items-center";
   const activeClass = "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-[#00C2FF] after:w-full after:scale-x-100 after:origin-left after:transition-transform after:duration-300";
   const hoverClass = "hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:h-[2px] hover:after:bg-[#00C2FF] hover:after:w-full hover:after:scale-x-100 hover:after:origin-left hover:after:transition-transform hover:after:duration-300 hover:after:scale-x-0";
 
@@ -34,18 +34,19 @@ const Navbar = () => {
         className={({ isActive }) =>
           `${linkClass} ${isActive ? activeClass : hoverClass}`
         }
-        to="/avilableCar"
+        to="/addTask"
       >
-         Available Cars
+        Add Task
       </NavLink>
       <NavLink
         className={({ isActive }) =>
           `${linkClass} ${isActive ? activeClass : hoverClass}`
         }
-        to="/contactus"
+        to="/manageTask"
       >
-        Contact Us
+       Manage Task
       </NavLink>
+    
     </>
   );
 
@@ -55,58 +56,27 @@ const Navbar = () => {
         className={({ isActive }) =>
           `${linkClass} ${isActive ? activeClass : hoverClass}`
         }
-        to="/"
+        to="/addTask"
       >
-        Home
+        Add Task
       </NavLink>
       <NavLink
         className={({ isActive }) =>
           `${linkClass} ${isActive ? activeClass : hoverClass}`
         }
-        to="/addCard"
+        to="/manageTask"
       >
-        Add Car
+       Manage Task
       </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : hoverClass}`
-        }
-        to="/myCar"
-      >
-        My Cars
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : hoverClass}`
-        }
-        to="/avilableCar"
-      >
-        Available Cars
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : hoverClass}`
-        }
-        to="/MyBooking"
-      >
-        My Bookings
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : hoverClass}`
-        }
-        to="/contactus"
-      >
-        Contact Us
-      </NavLink>
+    
     </>
   );
 
   return (
     <div>
-      <div className="bg-[#1a0b2e] backdrop-blur-3xl shadow-lg fixed top-0 left-0 right-0 z-50 opacity-95">
-        <div className="container w-11/12 mx-auto bg-[#1a0b2e]">
-          <div className="navbar flex justify-between items-center">
+      <div className="bg-gray-500 backdrop-blur-3xl shadow-lg fixed top-0 left-0 right-0 z-50 opacity-95">
+        <div className="container w-11/12 mx-auto bg-gray-500">
+          <div className="navbar flex justify-between items-center ">
             {/* Mobile Menu Toggle */}
             <div className="flex lg:hidden">
               <button
@@ -149,11 +119,7 @@ const Navbar = () => {
 
             {/* Logo */}
             <div className="flex-shrink-0">
-              <img
-                className="w-[120px]"
-                src="https://i.ibb.co.com/XVnJ0dv/1e3f54f3-a1b0-425b-9f0e-c8494b5164a2.png"
-                alt="Logo"
-              />
+            <h2 className="text-white"> Task Management</h2>
             </div>
 
             {/* Links */}
@@ -220,14 +186,14 @@ const Navbar = () => {
         {/* Responsive Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden">
-            <div className="menu bg-[#1D252D] space-y-2 px-4 py-2">
+            <div className="menu  space-y-2 px-4 py-2">
               {user?.email ? links : linksNotUser}
             </div>
           </div>
         )}
       </div>
 
-      <div className="pt-[100px]"></div>
+      <div className="pt-[50px]"></div>
       <div>
       
       </div>

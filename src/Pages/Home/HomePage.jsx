@@ -1,31 +1,32 @@
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 import Navbar from "../../shared Component/Provider/Navbar/Navbar";
-import Footer from "../../Footer/Footer";
-import { Outlet } from "react-router-dom";
-// import BannerVideo from "../Banner/BannerVideo";
 
 const HomePage = () => {
   return (
-    <div className="bg-[#11071f]">
-      {/*---------------------------Navbar ------------------------- */}
-      <header>
-        <Navbar></Navbar>
-        
-        
-      </header>
-      {/* ---------- */}
-    
-      {/*  */}
-      {/*---------------------------Main Section------------------------- */}
-      <main className="min-h-[calc(100vh-10rem)] container mx-auto  w-11/12" >
-        <Outlet>
-        </Outlet>
-      </main>
-      {/*---------------------------Footer------------------------- */}
-      <footer>
-        <Footer></Footer>
-      </footer>
+    <div>
+      <Navbar></Navbar>
 
+      <div className="flex">
+        <div className="bg-black h-screen w-56 pt-10 p-2">
+          <Link to={"/addTask"}>
+            <ul>
+              <li className="hover:bg-blue-800 bg-blue-500 text-white rounded-sm text-center mb-2">AddTask</li>
+            </ul>
+          </Link>
+          <Link to={"/manageTask"}>
+            <ul>
+              <li className="hover:bg-blue-800 bg-blue-500 text-white rounded-sm text-center mb-2">Manage Task</li>
+            </ul>
+          </Link>
+        </div>
+
+        <main className="min-h-[calc(100vh-10rem)] container mx-auto  w-11/12">
+          <div className="pt-10 p-10">
+            <Outlet></Outlet>
+          </div>
+        </main>
+      </div>
     </div>
   );
 };
