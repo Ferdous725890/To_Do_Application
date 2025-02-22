@@ -16,7 +16,7 @@ const Navbar = () => {
     });
   };
 
-  const linkClass = "relative text-white px-5 py-[3px] flex items-center";
+  const linkClass = "relative text-white px-4 ml-5 py-[3px] flex items-center";
   const activeClass = "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-[#00C2FF] after:w-full after:scale-x-100 after:origin-left after:transition-transform after:duration-300";
   const hoverClass = "hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:h-[2px] hover:after:bg-[#00C2FF] hover:after:w-full hover:after:scale-x-100 hover:after:origin-left hover:after:transition-transform hover:after:duration-300 hover:after:scale-x-0";
 
@@ -34,7 +34,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           `${linkClass} ${isActive ? activeClass : hoverClass}`
         }
-        to="/addTask"
+        to="/"
       >
         Add Task
       </NavLink>
@@ -56,7 +56,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           `${linkClass} ${isActive ? activeClass : hoverClass}`
         }
-        to="/addTask"
+        to="/"
       >
         Add Task
       </NavLink>
@@ -74,8 +74,8 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="bg-gray-500 backdrop-blur-3xl shadow-lg fixed top-0 left-0 right-0 z-50 opacity-95">
-        <div className="container w-11/12 mx-auto bg-gray-500">
+      <div className="bg-white/10 backdrop-blur-3xl shadow-lg fixed top-0 left-0 right-0 z-50 opacity-95">
+        <div className="container w-11/12 mx-auto ">
           <div className="navbar flex justify-between items-center ">
             {/* Mobile Menu Toggle */}
             <div className="flex lg:hidden">
@@ -119,7 +119,7 @@ const Navbar = () => {
 
             {/* Logo */}
             <div className="flex-shrink-0">
-            <h2 className="text-white"> Task Management</h2>
+            <Link to="/manageTask" className="text-white"> Task Management</Link>
             </div>
 
             {/* Links */}

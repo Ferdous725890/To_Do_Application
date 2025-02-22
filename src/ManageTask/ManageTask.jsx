@@ -3,19 +3,27 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import axios from "axios";
+import { MdDeleteForever, MdModeEditOutline } from "react-icons/md";
 
 const ManageTask = () => {
-  const { data = [], isLoading, error, refetch } = useQuery({
+  const {
+    data = [],
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
     queryKey: ["tasks"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/tasks");
+      const res = await axios.get(
+        "https://assinment-eleven-server-site.vercel.app/tasks"
+      );
       return res.data;
     },
   });
 
   const [tasks, setTasks] = useState([]);
- const [editTask, setEditTask] = useState({});
-  console.log(editTask, 'edit task');
+  const [editTask, setEditTask] = useState({});
+  console.log(editTask, "edit task");
   React.useEffect(() => {
     if (data.length) {
       setTasks(data);
@@ -35,11 +43,13 @@ const ManageTask = () => {
       });
 
       if (result.isConfirmed) {
-        const res = await axios.delete(`http://localhost:5000/tasks/${id}`);
+        const res = await axios.delete(
+          `https://assinment-eleven-server-site.vercel.app/tasks/${id}`
+        );
 
         if (res.data.deletedCount > 0) {
           Swal.fire("Deleted!", "Your task has been deleted.", "success");
-          refetch()
+          refetch();
         } else {
           Swal.fire("Failed!", "Task deletion failed.", "error");
         }
@@ -65,16 +75,16 @@ const ManageTask = () => {
   const categorizedTasks = {
     "To-Do": tasks.filter((task) => task.category === "To-Do"),
     "In Progress": tasks.filter((task) => task.category === "In Progress"),
-    "Done": tasks.filter((task) => task.category === "Done"),
+    Done: tasks.filter((task) => task.category === "Done"),
   };
-
-
-
 
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
-    const res = await axios.put(`http://localhost:5000/tasks/${editTask._id}`, editTask);
-    console.log(res);
+    const res = await axios.put(
+      `https://assinment-eleven-server-site.vercel.app/tasks/${editTask._id}`,
+      editTask
+    );
+    refetch();
     // queryClient.invalidateQueries(["tasks"]);
   };
 
@@ -104,108 +114,121 @@ const ManageTask = () => {
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
-                          className="border border-gray-800 mb-5 p-2  rounded cursor-move"
+                          className="border border-gray-800 mb-5 p-2 relative rounded cursor-move"
                         >
-                          <h3 className="font-semibold mb-1">Title: {task.title}</h3>
-                          <p className="mb-1">Description: {task.description}</p>
+                          <h3 className="font-semibold mb-1">
+                            Title: {task.title}
+                          </h3>
+                          <p className="mb-1">
+                            Description: {task.description}
+                          </p>
                           <p className="mb-1">Category: {task.category}</p>
                           <button
                             onClick={() => handleDeleted(task._id)}
                             className="text-red-500 "
                           >
-                            Delete
+                            {/* Delete Icons */}
+                            <MdDeleteForever className="absolute top-0 right-8 text-xl" />
                           </button>
 
+                          {/* Edit Button */}
+                          <label
+                            onClick={() => setEditTask(task)}
+                            htmlFor={`modal_${task._id}`}
+                            className="text-green-500 ml-20 cursor-pointer"
+                          >
+                            {/* Edit Icon use  */}
+                            <MdModeEditOutline className="absolute text-xl top-0 right-0" />
+                          </label>
 
-
-                        {/* Edit Button */}
-                        <label
-                          onClick={() => setEditTask(task)}
-                          htmlFor={`modal_${task._id}`}
-                          className="text-green-500 ml-20 cursor-pointer"
-                        >
-                          Edit
-                        </label>
-
-                        {/* Unique Modal for Each Task */}
-                        <input
-                          type="checkbox"
-                          id={`modal_${task._id}`}
-                          className="modal-toggle"
-                        />
+                          {/* Unique Modal for Each Task */}
+                          <input
+                            type="checkbox"
+                            id={`modal_${task._id}`}
+                            className="modal-toggle"
+                          />
 
                           <div className="modal" role="dialog">
-                          <div className="modal-box">
-                            <h3 className="text-lg font-bold">Edit Task</h3>
+                            <div className="modal-box">
+                              <h3 className="text-lg font-bold">Edit Task</h3>
 
-                            {/* Update Form */}
-                            <form onSubmit={handleSubmitUpdate}>
-                              <div className="mb-4">
-                                <label className="block mb-2">Title</label>
-                                <input
-                                  type="text"
-                                  name="title"
-                                  value={editTask.title || ""}
-                                  onChange={(e) =>
-                                    setEditTask({
-                                      ...editTask,
-                                      title: e.target.value,
-                                    })
-                                  }
-                                  className="w-full p-2 border"
-                                  required
-                                />
-                              </div>
+                              {/* Update Form */}
+                              <form onSubmit={handleSubmitUpdate}>
+                                <div className="mb-4">
+                                  <label className="block mb-2">Title</label>
+                                  <input
+                                    type="text"
+                                    name="title"
+                                    maxLength={50}
+                                    value={editTask.title || ""}
+                                    onChange={(e) =>
+                                      setEditTask({
+                                        ...editTask,
+                                        title: e.target.value,
+                                      })
+                                    }
+                                    className="w-full p-2 border"
+                                    required
+                                  />
+                                </div>
 
-                              <div className="mb-4">
-                                <label className="block mb-2">Description</label>
-                                <textarea
-                                  name="description"
-                                  value={editTask.description || ""}
-                                  onChange={(e) =>
-                                    setEditTask({
-                                      ...editTask,
-                                      description: e.target.value,
-                                    })
-                                  }
-                                  className="w-full p-2 border"
-                                  required
-                                />
-                              </div>
+                                <div className="mb-4">
+                                  <label className="block mb-2">
+                                    Description
+                                  </label>
+                                  <textarea
+                                    name="description"
+                                    maxLength={200}
+                                    value={editTask.description || ""}
+                                    onChange={(e) =>
+                                      setEditTask({
+                                        ...editTask,
+                                        description: e.target.value,
+                                      })
+                                    }
+                                    className="w-full p-2 border"
+                                    required
+                                  />
+                                </div>
 
-                              <div className="mb-4">
-                                <label className="block mb-2">Category</label>
-                                <select
-                                  value={editTask.category || "In Progress"}
-                                  onChange={(e) =>
-                                    setEditTask({
-                                      ...editTask,
-                                      category: e.target.value,
-                                    })
-                                  }
-                                  className="w-full p-2 border"
+                                <div className="mb-4">
+                                  <label className="block mb-2">Category</label>
+                                  <select
+                                    value={editTask.category || "In Progress"}
+                                    onChange={(e) =>
+                                      setEditTask({
+                                        ...editTask,
+                                        category: e.target.value,
+                                      })
+                                    }
+                                    className="w-full p-2 border"
+                                  >
+                                    <option value="To-Do">To-Do</option>
+                                    <option value="In Progress">
+                                      In Progress
+                                    </option>
+                                    <option value="Done">Done</option>
+                                  </select>
+                                </div>
+
+                                {/* Update Button */}
+                                <button
+                                  type="submit"
+                                  className="bg-blue-500 text-white w-full mt-5 rounded-md"
                                 >
-                                  <option value="To-Do">To-Do</option>
-                                  <option value="In Progress">In Progress</option>
-                                  <option value="Done">Done</option>
-                                </select>
-                              </div>
+                                  Update Now
+                                </button>
+                              </form>
+                            </div>
 
-                              {/* Update Button */}
-                              <button
-                                type="submit"
-                                className="bg-blue-500 text-white w-full mt-5 rounded-md"
-                              >
-                                Update Now
-                              </button>
-                            </form>
+                            {/* Close Modal */}
+                            <label
+                              className="modal-backdrop"
+                              htmlFor={`modal_${task._id}`}
+                            >
+                              Close
+                            </label>
                           </div>
-
-                          {/* Close Modal */}
-                          <label className="modal-backdrop" htmlFor={`modal_${task._id}`}>
-                            Close
-                          </label>
-                        </div>
                         </li>
                       )}
                     </Draggable>
@@ -238,7 +261,7 @@ export default ManageTask;
 //   } = useQuery({
 //     queryKey: ["tasks"],
 //     queryFn: async () => {
-//       const res = await axios.get("http://localhost:5000/tasks");
+//       const res = await axios.get("https://assinment-eleven-server-site.vercel.app/tasks");
 //       console.log("all data ", res.data);
 //       return res.data;
 //     },
@@ -250,9 +273,6 @@ export default ManageTask;
 //       setTasks(data.filter((task) => task.category));
 //     }
 //   }, [data]);
-
-
-
 
 //   const handelDeleted = async (id) => {
 //     try {
@@ -268,7 +288,7 @@ export default ManageTask;
 //       });
 
 //       if (result.isConfirmed) {
-//         const res = await axios.delete(`http://localhost:5000/tasks/${id}`);
+//         const res = await axios.delete(`https://assinment-eleven-server-site.vercel.app/tasks/${id}`);
 
 //         if (res.data.deletedCount > 0) {
 //           Swal.fire("Deleted!", "Your task has been deleted.", "success");
@@ -281,7 +301,6 @@ export default ManageTask;
 //       console.error("Error deleting task:", error);
 //     }
 //   };
-
 
 //     const handleDragEnd = (result) => {
 //     if (!result.destination) return;
@@ -378,18 +397,9 @@ export default ManageTask;
 //  {/* <InProgress></InProgress>
 // <ToDo></ToDo>
 // <Done></Done> */}
-     
+
 //     </div>
 //   );
 // };
 
 // export default ManageTask;
-
-
-
-
-
-
-
-
-

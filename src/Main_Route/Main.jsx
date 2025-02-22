@@ -10,7 +10,7 @@ import PrivateRouter from "../PrivateRoute/Private";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage></HomePage>,
+    element: <HomePage></HomePage>, 
     errorElement: <Error></Error>,
     children: [
       {
@@ -18,18 +18,20 @@ const router = createBrowserRouter([
         element: <LoginPage></LoginPage>,
       },
       {
-        path: "/addTask",
-        element: <PrivateRouter>
-          <AddTask></AddTask>
-        </PrivateRouter>
+        path: "/",
+        element: (
+          <PrivateRouter>
+            <AddTask></AddTask>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/manageTask",
-        element:
-        <PrivateRouter>
-
-          <ManageTask></ManageTask>
-        </PrivateRouter>
+        element: (
+          <PrivateRouter>
+            <ManageTask></ManageTask>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/register",

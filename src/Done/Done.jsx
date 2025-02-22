@@ -8,7 +8,7 @@ const ToDo = () => {
   const { data = [], isLoading } = useQuery({
     queryKey: ["tasks"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/tasks");
+      const res = await axios.get("https://assinment-eleven-server-site.vercel.app/tasks");
       return res.data;
     },
   });
@@ -34,7 +34,7 @@ const ToDo = () => {
       });
 
       if (result.isConfirmed) {
-        const res = await axios.delete(`http://localhost:5000/tasks/${id}`);
+        const res = await axios.delete(`https://assinment-eleven-server-site.vercel.app/tasks/${id}`);
 
         if (res.data.deletedCount > 0) {
           Swal.fire("Deleted!", "Your task has been deleted.", "success");
@@ -114,7 +114,7 @@ export default ToDo;
 //     const { data = [], isLoading, error } = useQuery({
 //         queryKey: ["tasks"],
 //         queryFn: async () => {
-//           const res = await axios.get("http://localhost:5000/tasks");
+//           const res = await axios.get("https://assinment-eleven-server-site.vercel.app/tasks");
 //           console.log('all data ', res.data ); 
 //           return res.data;
 //         },
@@ -134,7 +134,7 @@ export default ToDo;
 //       });
   
 //       if (result.isConfirmed) {
-//         const res = await axios.delete(`http://localhost:5000/tasks/${id}`);
+//         const res = await axios.delete(`https://assinment-eleven-server-site.vercel.app/tasks/${id}`);
   
 
 //         if (res.data.deletedCount > 0) {

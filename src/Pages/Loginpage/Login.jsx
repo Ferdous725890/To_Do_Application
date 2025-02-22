@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Authcontext } from '../../shared Component/Authprovider/Authprovider';
-import Swal from 'sweetalert2';
-import axios from 'axios';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
-import animation from '../../../public/animation.json'
-import { Player } from '@lottiefiles/react-lottie-player';
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Authcontext } from "../../shared Component/Authprovider/Authprovider";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import animation from "../../../public/animation.json";
+import { Player } from "@lottiefiles/react-lottie-player";
 const LoginPage = () => {
   const { userLogin, googleLogin } = useContext(Authcontext);
-  const [showPassword, setShowPassword] = useState(false); 
-  const navigate = useNavigate(); 
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     console.log("btn click");
@@ -24,56 +24,68 @@ const LoginPage = () => {
     };
 
     userLogin(email, password)
-      .then(result => {
-        console.log(result.user.email, "user email hobe ata ");
+      .then((result) => {
+        
+        console.log(result, "user email hobe ata ");
         const user = { email: result.user.email };
-        axios.post('http://localhost:5000/jwt', user, {
-          withCredentials: true
-        })
-          .then(res => console.log(res.data));
+        // axios
+        //   .post("https://assinment-eleven-server-site.vercel.app/", user, {
+        //     withCredentials: true,
+        //   })
+          // .then((res) => console.log(res.data));
 
         // SweetAlert success message
         Swal.fire({
           title: "Successfully Logged In!",
           icon: "success",
-          draggable: true
+          draggable: true,
         });
 
-        navigate('/'); 
+        navigate("/");
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("error", error);
         Swal.fire({
           title: "Login Failed",
           text: error.message,
           icon: "error",
-          draggable: true
+          draggable: true,
         });
       });
   };
 
   const handelGoogleLogin = () => {
     googleLogin()
-      .then(result => {
+      .then((result) => {
+        const name = result.user.displayName
+        const email = (result.user.email);
+        console.log(name,email);
         console.log(result);
+        const userInformation = {
+          name,
+          email,
+        }
+
+        axios.post('http://localhost:5000/user',userInformation)
+        .then((res)=>console.log(res.data))
 
         // SweetAlert success message for Google login
         Swal.fire({
           title: "Successfully Logged In with Google!",
           icon: "success",
-          draggable: true
+          draggable: true,
         });
 
         // Navigate to Home page after Google login
-        navigate('/'); // Make sure '/home' is your correct home route
+        navigate("/"); // Make sure '/home' is your correct home route
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         Swal.fire({
           title: "Google Login Failed",
           text: error.message,
           icon: "error",
-          draggable: true
+          draggable: true,
         });
       });
   };
@@ -82,7 +94,7 @@ const LoginPage = () => {
     <div className="h-[600px] mt-3 shadow-lg mb-5 rounded-lg flex items-center justify-center">
       <div className="max-w-[500px] w-full bg-white/10 bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg p-8 text-white">
         <h1 className="text-2xl font-bold text-center mb-6">Login</h1>
-        <form onSubmit={handleLogin} >
+        <form onSubmit={handleLogin}>
           {/* Email Field */}
           <div className="mb-4">
             <label htmlFor="email" className="block mb-2 text-sm font-medium">
@@ -99,7 +111,10 @@ const LoginPage = () => {
 
           {/* Password Field with toggle */}
           <div className="mb-4">
-            <label htmlFor="password" className="block mb-2 text-sm font-medium">
+            <label
+              htmlFor="password"
+              className="block mb-2 text-sm font-medium"
+            >
               Password
             </label>
             <div className="relative">
@@ -114,7 +129,8 @@ const LoginPage = () => {
                 className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)} // Toggle the state
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Show/hide eye icon */}
+                {showPassword ? <FaEyeSlash /> : <FaEye />}{" "}
+                {/* Show/hide eye icon */}
               </div>
             </div>
           </div>
@@ -143,7 +159,7 @@ const LoginPage = () => {
 
         {/* Register Link */}
         <p className="text-center text-sm mt-4">
-          Don't have an account?{' '}
+          Don't have an account?{" "}
           <Link to="/register" className="text-blue-300 hover:underline">
             Register
           </Link>
@@ -158,14 +174,13 @@ const LoginPage = () => {
         </button>
       </div>
 
-
-      <div className='hidden lg:block'>
-      <Player
-        autoplay
-        loop
-        src={animation} 
-        style={{ height: "300px", width: "300px" }}
-      ></Player>
+      <div className="hidden lg:block">
+        <Player
+          autoplay
+          loop
+          src={animation}
+          style={{ height: "300px", width: "300px" }}
+        ></Player>
       </div>
     </div>
   );

@@ -48,7 +48,7 @@ const userLogin = (email, password) =>{
   //     if (currentUser?.email) {
   //       const user = { email: currentUser.email };
   //       axios
-  //         .post("http://localhost:5000/jwt", user, {
+  //         .post("https://assinment-eleven-server-site.vercel.app/jwt", user, {
   //           withCredentials: true,
   //         })
   //         .then((res) => {
@@ -58,7 +58,7 @@ const userLogin = (email, password) =>{
   //     } else {
   //       axios
   //         .post(
-  //           "http://localhost:5000/logout",
+  //           "https://assinment-eleven-server-site.vercel.app/logout",
   //           {},
   //           {
   //             withCredentials: true,

@@ -91,7 +91,7 @@ const RegisterPage = () => {
       .then((result) => {
         console.log(result);
         // Navigate to home page after Google login
-        navigate("/"); // Adjust this route based on your app structure
+        navigate("/addTask"); // Adjust this route based on your app structure
 
         // SweetAlert success message
         Swal.fire({

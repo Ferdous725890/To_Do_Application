@@ -11,7 +11,7 @@ const InProgress = () => {
   const { data: tasks = [], isLoading, error } = useQuery({
     queryKey: ["tasks"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/tasks");
+      const res = await axios.get("https://assinment-eleven-server-site.vercel.app/tasks");
       return res.data;
     },
   });
@@ -34,7 +34,7 @@ const InProgress = () => {
       });
 
       if (result.isConfirmed) {
-        const res = await axios.delete(`http://localhost:5000/tasks/${id}`);
+        const res = await axios.delete(`https://assinment-eleven-server-site.vercel.app/tasks/${id}`);
 
         if (res.data.deletedCount > 0) {
           Swal.fire("Deleted!", "Your task has been deleted.", "success");
@@ -51,7 +51,7 @@ const InProgress = () => {
 
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
-    const res = await axios.put(`http://localhost:5000/tasks/${editTask._id}`, editTask);
+    const res = await axios.put(`https://assinment-eleven-server-site.vercel.app/tasks/${editTask._id}`, editTask);
     console.log(res);
     queryClient.invalidateQueries(["tasks"]);
   };
@@ -226,7 +226,7 @@ export default InProgress;
 //   const { data: tasks = [], isLoading, error } = useQuery({
 //     queryKey: ["tasks"],
 //     queryFn: async () => {
-//       const res = await axios.get("http://localhost:5000/tasks");
+//       const res = await axios.get("https://assinment-eleven-server-site.vercel.app/tasks");
 //       return res.data;
 //     },
 //   });
@@ -249,7 +249,7 @@ export default InProgress;
 //       });
 
 //       if (result.isConfirmed) {
-//         const res = await axios.delete(`http://localhost:5000/tasks/${id}`);
+//         const res = await axios.delete(`https://assinment-eleven-server-site.vercel.app/tasks/${id}`);
 
 //         if (res.data.deletedCount > 0) {
 //           Swal.fire("Deleted!", "Your task has been deleted.", "success");
@@ -267,7 +267,7 @@ export default InProgress;
 
 //   const handleSubmitUpdate = async (e) => {
 //     e.preventDefault();
-//       const res = await axios.put(`http://localhost:5000/tasks/${editTask._id}`, editTask);
+//       const res = await axios.put(`https://assinment-eleven-server-site.vercel.app/tasks/${editTask._id}`, editTask);
 //       console.log(res);
 
      
@@ -386,7 +386,7 @@ export default InProgress;
 // //   } = useQuery({
 // //     queryKey: ["tasks"],
 // //     queryFn: async () => {
-// //       const res = await axios.get("http://localhost:5000/tasks");
+// //       const res = await axios.get("https://assinment-eleven-server-site.vercel.app/tasks");
 // //       console.log("all data ", res.data);
 // //       return res.data;
 // //     },
@@ -406,7 +406,7 @@ export default InProgress;
 // //       });
 
 // //       if (result.isConfirmed) {
-// //         const res = await axios.delete(`http://localhost:5000/tasks/${id}`);
+// //         const res = await axios.delete(`https://assinment-eleven-server-site.vercel.app/tasks/${id}`);
 
 // //         if (res.data.deletedCount > 0) {
 // //           Swal.fire("Deleted!", "Your task has been deleted.", "success");

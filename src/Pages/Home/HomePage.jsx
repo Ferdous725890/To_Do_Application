@@ -8,8 +8,8 @@ const HomePage = () => {
       <Navbar></Navbar>
 
       <div className="flex">
-        <div className="bg-black h-screen w-56 pt-10 p-2">
-          <Link to={"/addTask"}>
+        <div className="bg-white/10 rounded-b-md h-screen w-56 pt-10 p-2">
+          <Link to={"/"}>
             <ul>
               <li className="hover:bg-blue-800 bg-blue-500 text-white rounded-sm text-center mb-2">AddTask</li>
             </ul>
