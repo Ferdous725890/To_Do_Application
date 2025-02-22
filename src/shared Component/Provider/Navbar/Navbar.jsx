@@ -17,18 +17,20 @@ const Navbar = () => {
   };
 
   const linkClass = "relative text-white px-4 ml-5 py-[3px] flex items-center";
-  const activeClass = "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-[#00C2FF] after:w-full after:scale-x-100 after:origin-left after:transition-transform after:duration-300";
-  const hoverClass = "hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:h-[2px] hover:after:bg-[#00C2FF] hover:after:w-full hover:after:scale-x-100 hover:after:origin-left hover:after:transition-transform hover:after:duration-300 hover:after:scale-x-0";
+  const activeClass =
+    "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-[#00C2FF] after:w-full after:scale-x-100 after:origin-left after:transition-transform after:duration-300";
+  const hoverClass =
+    "hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:h-[2px] hover:after:bg-[#00C2FF] hover:after:w-full hover:after:scale-x-100 hover:after:origin-left hover:after:transition-transform hover:after:duration-300 hover:after:scale-x-0";
 
   const linksNotUser = (
-    < >
+    <>
       <NavLink
         className={({ isActive }) =>
           `${linkClass} ${isActive ? activeClass : hoverClass}`
         }
         to="/"
       >
-         Home
+        Home
       </NavLink>
       <NavLink
         className={({ isActive }) =>
@@ -44,9 +46,8 @@ const Navbar = () => {
         }
         to="/manageTask"
       >
-       Manage Task
+        Manage Task
       </NavLink>
-    
     </>
   );
 
@@ -66,9 +67,8 @@ const Navbar = () => {
         }
         to="/manageTask"
       >
-       Manage Task
+        Manage Task
       </NavLink>
-    
     </>
   );
 
@@ -119,29 +119,34 @@ const Navbar = () => {
 
             {/* Logo */}
             <div className="flex-shrink-0">
-            <Link to="/manageTask" className="text-white"> Task Management</Link>
+              <Link to="/manageTask" className="text-white">
+                {" "} 
+                Task Management
+              </Link>
             </div>
 
             {/* Links */}
-            <div className="hidden lg:flex">{user?.email ? links : linksNotUser}</div>
+            <div className="hidden lg:flex">
+              {user?.email ? links : linksNotUser}
+            </div>
 
             {/* User Menu */}
             <div className="flex">
               {!user?.email ? (
-               <div className="flex">
-                 <Link
-                  className="border mr-5 text-[#00C2FF] font-bold px-3 py-[3px] rounded-md flex items-center"
-                  to="/login"
-                >
-                  <AiOutlineLogin className="text-lg mr-2" /> Log In
-                </Link>
-                 <Link
-                  className="border text-[#00C2FF] font-bold px-3 py-[3px] rounded-md flex items-center"
-                  to="/register"
-                >
-                  <AiOutlineLogin className="text-lg mr-2" /> Register now
-                </Link>
-               </div>
+                <div className="flex">
+                  <Link
+                    className="border mr-5 text-[#00C2FF] items-center px-3 py-[3px] rounded-md flex items-center"
+                    to="/login"
+                  >
+                    <AiOutlineLogin className="text-sm mr-2" /> Log In
+                  </Link>
+                  <Link
+                    className="border text-[#00C2FF]  px-3 py-[3px] rounded-md flex items-center"
+                    to="/register"
+                  >
+                    <AiOutlineLogin className="text-sm mr-2" /> Register now
+                  </Link>
+                </div>
               ) : (
                 <div className="relative">
                   <div
@@ -161,9 +166,7 @@ const Navbar = () => {
                     </div>
                   </div>
                   {isDropdownOpen && (
-                    <ul
-                      className="absolute right-0 mt-2 menu bg-base-100 rounded-box z-[10] w-52 p-2 shadow"
-                    >
+                    <ul className="absolute right-0 mt-2 menu bg-base-100 rounded-box z-[10] w-52 p-2 shadow">
                       <li>
                         <a className="justify-between">
                           Profile <span className="badge">New</span>
@@ -194,19 +197,9 @@ const Navbar = () => {
       </div>
 
       <div className="pt-[50px]"></div>
-      <div>
-      
-      </div>
+      <div></div>
     </div>
   );
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-

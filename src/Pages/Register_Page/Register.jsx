@@ -11,7 +11,7 @@ const RegisterPage = () => {
   const { googleLogin, userCreated, resetPassword } = useContext(Authcontext);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const navigate = useNavigate(); // useNavigate hook to navigate after login
+  const navigate = useNavigate();
 
   const validatePassword = (password) => {
     const strongPasswordRegex =
@@ -53,12 +53,13 @@ const RegisterPage = () => {
             photoURL: photo,
           })
           .then(() => {
+            navigate("/");
             Swal.fire({
               title: "Successfully Registered!",
               icon: "success",
               draggable: true,
             });
-            navigate("/");
+           
           })
           .catch((error) => {
             console.error("Error updating profile:", error);
